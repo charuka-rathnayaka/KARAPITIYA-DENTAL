@@ -66,7 +66,7 @@ if(isset($_SESSION["user_type"])){
                         <?php
                         
                         echo $_SESSION["success"];
-                       echo $_SESSION["user_type"];
+                       //echo $_SESSION["user_type"];
                         unset($_SESSION["success"]);
                         ?>
                     </h3>
