@@ -52,7 +52,7 @@
     if(count($errors)==0){
         $user=$user_manage->register_patient($_SESSION["Firstname"],$_SESSION["Lastname"],$_SESSION["Email"],$_SESSION["birthday"],$_SESSION["gender"],$_POST["username"],$_POST["password1"]);
         if (get_class($user)=="Patient"){
-            $SESSION["user_type"]=get_class($user);
+            $_SESSION["user_type"]=get_class($user);
             $_SESSION['success']="Now you are logged in patient "; 
             $_SESSION['username']=$user->get_username();
             header('location: index.php');
