@@ -49,9 +49,16 @@ function login_user($username,$pass){
 }
 function register_patient($Firstname,$Lastname,$Email,$Birthday,$Gender,$Username,$pass){
     $password=md5($pass);
-    $sql_query1="INSERT INTO `patient_accounts` ( `Firstname`, `Lastname`, `Email`, `Birthday`, `Gender`, `Username`, `Password`) VALUES ('$Firstname', '$Lastname', '$Email', '$Birthday', '$Gender', '$Username','$password')";
-    mysqli_query($this->database,$sql_query1);
+    $stmt = ($this->database)->prepare("INSERT INTO `patient_accounts` ( `Firstname`, `Lastname`, `Email`,`Birthday`, `Gender`, `Username`, `Password`) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssss", $Firstname, $Lastname, $Email,$Birthday, $Gender, $Username,$password);
     $patient=new Patient($Firstname,$Lastname,$Email,$Birthday,$Gender,$Username,$password);
+    $stmt->execute();
+
+    $stmt1 = ($this->database)->prepare("INSERT INTO `patient_dental_visit_status` ( `Username`,`Firstname`, `Status`,`Email`) VALUES (?, ?, ?, ?)");
+    $stmt1->bind_param("ssss", $Username, $Firstname,$status, $Email);
+    $status="No Appointment";
+    $stmt1->execute();
+
     return $patient;
 
 }
