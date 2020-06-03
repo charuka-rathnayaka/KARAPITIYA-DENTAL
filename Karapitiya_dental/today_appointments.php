@@ -18,19 +18,37 @@ if (empty($_SESSION['username'])) {
         <h2>DENTAL UNIT - KARAPITIYA TEACHING HOSPITAL</h2>
 
     </div>
+
     <div class="navbar">
-        <a href="index_doctor.php">Home</a>
-        <div class="dropdown">
-            <button class="dropbtn">Appointments
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="today_appointments.php">Today Appointments</a>
-                <a href="past_appointments.php">Past Appointments</a>
+        <a href="index.php">Home</a>
+        <div id="part1">
+            <div class="dropdown">
+                <button class="dropbtn">Treatments
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="basic_treatments.php">Basic Treatments</a>
+                    <a href="advance_treatments.php">Advance Treatments</a>
+                </div>
             </div>
         </div>
-        <a href="profile_doctor.php">My Profile</a>
-        <a href="personal_blog.php">Blog</a>
+        <div id="part2">
+            <div class="dropdown">
+                <button class="dropbtn">Appointments
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="add_new_appointment.php">Make new Appointment</a>
+                    <a href="view_my_appointment.php">View My Appointments</a> </div>
+            </div>
+        </div>
+        <div id="part3">
+            <a href="my_profile.php">My Profile</a>
+        </div>
+        <div id="part4">
+            <a href="about_us.php">About</a>
+            <a href="contact_us.php">Contact</a>
+        </div>
     </div>
     <div class="content">
         <?php if (isset($_SESSION["success"])) : ?>
@@ -44,6 +62,7 @@ if (empty($_SESSION['username'])) {
             </div>
         <?php endif ?>
         <?php
+        include('user_type_menu.php');
         if (isset($_SESSION['username'])) :
         ?>
             <div class="welcome">
@@ -84,15 +103,14 @@ if (empty($_SESSION['username'])) {
                     </tr>
                 </thead>
                 <?php
-                $database = mysqli_connect('localhost', 'root', '', 'den');
-
+                $database = mysqli_connect('localhost', 'root', '', 'dentalkarapitiya');
                 $date = date("Y/m/d");
                 $ss = "SELECT * FROM booking WHERE `date`='$date'";
                 $re = mysqli_query($database, $ss);
                 $data = array();
                 if (mysqli_num_rows($re) > 0) {
                     while ($rows = mysqli_fetch_assoc($re)) {
-                        echo "<tr><td>" . $rows["username"] . "</td><td>" . $rows["date"] . "</td><td>" . $rows["Appointmentnumber"] . "</td><td>" . $rows["category"] . "</td></tr>";
+                        echo "<tr id=" . $rows["Appointmentnumber"] . "><td>" . $rows["username"] . "</td><td>" . $rows["date"] . "</td><td>" . $rows["Appointmentnumber"] . "</td><td>" . $rows["category"] . "</td></tr>";
                     }
                 }
 

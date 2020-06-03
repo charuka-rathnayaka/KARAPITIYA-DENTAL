@@ -1,5 +1,5 @@
 <?php
-$database = mysqli_connect('localhost', 'root', '', 'den');
+$database = mysqli_connect('localhost', 'root', '', 'dentalkarapitiya');
 $date = date("Y/m/d");
 $ss = "SELECT * FROM booking WHERE `date`='$date'";
 $re = mysqli_query($database, $ss);

@@ -1,6 +1,6 @@
 <?php
 include('today_appointments.php');
-$database = mysqli_connect('localhost', 'root', '', 'den');
+$database = mysqli_connect('localhost', 'root', '', 'dentalkarapitiya');
 
 $username = $_POST['username'];
 $date = $_POST['date'];
@@ -16,3 +16,4 @@ if (mysqli_num_rows($re) <= 0) {
     $sql2 = "DELETE FROM booking WHERE `username`='$username' AND `date`='$date' AND `Appointmentnumber`='$appointmentnumber'";
     mysqli_query($database, $sql2);
 }
+header('Location:today_appointments.php');
