@@ -1,9 +1,9 @@
 <?php
 
-if (isset($_SESSION["user_type"])){
-    $user_type=$_SESSION["user_type"];
-    if ($user_type=="Doctor"){
-       echo '<script> 
+if (isset($_SESSION["user_type"])) {
+   $user_type = $_SESSION["user_type"];
+   if ($user_type == "Doctor") {
+      echo '<script> 
        var link = document.createElement("a");
        var node = document.createTextNode("Blog");
        link.appendChild(node);
@@ -13,7 +13,7 @@ if (isset($_SESSION["user_type"])){
        var elmnt = document.getElementById("part4");
        element.insertBefore(link,elmnt);</script>';
 
-       echo '<script>
+      echo '<script>
        var elmnt = document.getElementById("part2");
        var link = document.createElement("a");
        var node = document.createTextNode("View appointments");
@@ -24,7 +24,7 @@ if (isset($_SESSION["user_type"])){
         element.replaceChild(link,elmnt);
        </script>';
 
-       echo '<script>
+      echo '<script>
        var elmnt = document.getElementById("part3");
        var link = document.createElement("a");
        var node = document.createTextNode("My Profile");
@@ -34,16 +34,16 @@ if (isset($_SESSION["user_type"])){
        var element = x[0];  
         element.replaceChild(link,elmnt);
        </script>';
-    }
-    if ($user_type=="Admin"){
-        echo '<script>
+   }
+   if ($user_type == "Admin") {
+      echo '<script>
         var elmnt = document.getElementById("part2");
         var x=document.getElementsByClassName("navbar");
         var element = x[0]; 
         element.removeChild(elmnt)
         </script>';
-    
-    echo '<script>
+
+      echo '<script>
        var elmnt = document.getElementById("part3");
        var link = document.createElement("a");
        var node = document.createTextNode("Add Doctor");
@@ -53,9 +53,9 @@ if (isset($_SESSION["user_type"])){
        var element = x[0];  
         element.replaceChild(link,elmnt);
        </script>';
-    }
-    if($user_type=="Staff"){
-        echo '<script>
+   }
+   if ($user_type == "Staff") {
+      echo '<script>
        var elmnt = document.getElementById("part2");
        var link = document.createElement("a");
        var node = document.createTextNode("Add appointments");
@@ -66,22 +66,16 @@ if (isset($_SESSION["user_type"])){
         element.replaceChild(link,elmnt);
        </script>';
 
-    
-    echo '<script>
+
+      echo '<script>
        var elmnt = document.getElementById("part3");
        var link = document.createElement("a");
        var node = document.createTextNode("View Appointments");
        link.appendChild(node);
-       link.href="today_appointments.php"
+       link.href="viewAppointment.php"
        var x=document.getElementsByClassName("navbar");
        var element = x[0];  
         element.replaceChild(link,elmnt);
        </script>';
-    }
-    
-
+   }
 }
-
-
-
-?>
