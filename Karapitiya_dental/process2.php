@@ -172,7 +172,7 @@ $(document).ready(function() {
 		var num="<?php echo $number?>"
 		var id=$('#id1').val();
 		var choice=$('#select1').val();
-		var date=$('#date1').val();
+		var date=$('#datepicker').val();
 		$.ajax({
 			url:"process1.php",
 			method:"POST",

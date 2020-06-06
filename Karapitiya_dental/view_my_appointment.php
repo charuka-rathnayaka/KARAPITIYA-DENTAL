@@ -1,5 +1,4 @@
 <?php include('config.php');
-include('user_type_menu.php');
 
 if (empty($_SESSION['username'])) {
     header("location:login.php");
@@ -12,7 +11,6 @@ if (empty($_SESSION['username'])) {
     <link rel="stylesheet" type="text/css" href=stylesheet_view_appointment.css>
     <script src="jquery.min.js"></script>
     <script src="curr_appointment.js"></script>
-
 </head>
 
 <body>
@@ -20,36 +18,31 @@ if (empty($_SESSION['username'])) {
         <h2>DENTAL UNIT - KARAPITIYA TEACHING HOSPITAL</h2>
 
     </div>
+
     <div class="navbar">
         <a href="index.php">Home</a>
-        <div id="part1">
-            <div class="dropdown">
-                <button class="dropbtn">Treatments
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="basic_treatments.php">Basic Treatments</a>
-                    <a href="advance_treatments.php">Advance Treatments</a>
-                </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Treatments
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="basic_treatments.php">Basic Treatments</a>
+                <a href="advance_treatments.php">Advance Treatments</a>
             </div>
         </div>
-        <div id="part2">
-            <div class="dropdown">
-                <button class="dropbtn">Appointments
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="add_new_appointment.php">Make new Appointment</a>
-                    <a href="view_my_appointment.php">View My Appointments</a> </div>
+        <div class="dropdown">
+            <button class="dropbtn">Appointments
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="add_new_appointment.php">Make new Appointment</a>
+                <a href="view_my_appointment.php">View My Appointments</a>
             </div>
         </div>
-        <div id="part3">
-            <a href="my_profile.php">My Profile</a>
-        </div>
-        <div id="part4">
-            <a href="about_us.php">About</a>
-            <a href="contact_us.php">Contact</a>
-        </div>
+        <a href="my_profile.php">My Profile</a>
+        <a href="about_us.php">About</a>
+        <a href="contact_us.php">Contact</a>
     </div>
     <div class="sub_header">
         <h2>View My Appointments</h2>
@@ -86,12 +79,13 @@ if (empty($_SESSION['username'])) {
     </div>
     <div>
         <h1 class="head">My Appointments</h1>
-        <table class="tbl">
+        <table class="tbl" id="tbl">
             <thead>
                 <tr>
                     <th>Date</th>
                     <th>Appointment Number</th>
                     <th>Traetment</th>
+                    <th></th>
                 </tr>
             </thead>
             <?php
@@ -101,13 +95,40 @@ if (empty($_SESSION['username'])) {
             $results = mysqli_query($database, $sql);
             if (mysqli_num_rows($results) > 0) {
                 while ($rows = mysqli_fetch_assoc($results)) {
-                    echo "<tr><td>" . $rows["date"] . "</td><td>" . $rows["Appointmentnumber"] . "</td><td>" . $rows["category"] . "</td></tr>";
+                    echo "<tr><td>" . $rows["date"] . "</td><td>" . $rows["Appointmentnumber"] . "</td><td>" . $rows["category"] ."</td><td><input type='button' id='btn' value='delete' name='delete' onClick='selectedRowInput()'>". "</td></tr>";
                 }
             }
-
-
             ?>
         </table>
+        <div class="bottom"></div>
+     <script src="jquery.min.js"></script>
+		<script>
+		$('input[type="button"]').click(function(){
+   		$(this).closest('tr').remove();
+		});
+		</script>
+<script>
+function selectedRowInput(){
+	var rIndex,table= document.getElementById("tbl");
+	for(var i=0;i<table.rows.length; i++){
+		table.rows[i].onclick= function(){
+			var date=this.cells[0].innerHTML;
+			var app_num=this.cells[1].innerHTML;
+			var treatment=this.cells[2].innerHTML;
+			var btnval=$('#btn').val();
+			$.ajax({
+			url:"delete.php",
+			method:"POST",
+			data:{date:date,app_num:app_num,treatment:treatment,btnval:btnval},
+			success: function(data){
+				$('.bottom').html(data);
+			}
+		});
+		}
+	}
+}
+
+</script>
     </div>
     <div class="appoinment">
         <div class="head"><span id="status"></span></div>

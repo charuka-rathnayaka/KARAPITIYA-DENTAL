@@ -34,6 +34,17 @@ include('user_type_menu.php'); ?>
             top: 605px;
         }
     </style>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+	$(function(){
+    $("#datepicker").datepicker({
+	minDate: 0,
+	maxDate: +7
+		});
+	});
+	</script>
 </head>
 
 <body>
@@ -122,7 +133,7 @@ include('user_type_menu.php'); ?>
                     </select></td>
             </tr>
             <tr>
-                <td>Date:<input type="date" name="date" id="date1" value="" /></td>
+                <td>Date:<input type="text" id="datepicker"></td>
             </tr>
             <tr>
                 <td><input type="button" name="check" id="check1" value="Check" /></td>
@@ -138,7 +149,7 @@ include('user_type_menu.php'); ?>
             $('input[id="check1"]').click(function() {
                 var ischeck = $(this).val();
                 var choice = $('#select1').val();
-                var date = $('#date1').val();
+                var date = $('#datepicker').val();
                 $.ajax({
                     url: "check.php",
                     method: "POST",
@@ -152,8 +163,9 @@ include('user_type_menu.php'); ?>
                     }
                 });
             });
-        });
-    </script>
+		});
+
+</script>
 </body>
 
 </html>
