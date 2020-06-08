@@ -130,14 +130,17 @@ class ConfirmedState extends State{
 		$appointment->setState(new ClosedState());
 		$database= new Db_Connection();
 		$connection = $database->connect();
-		$id=$_POST['id'];
+		$patient_name=$_POST['id'];
+		$usrnm=$_SESSION["username"];
 		$select=$_POST['choice'];
 		$day=$_POST['date'];
 		$date=date("d-m-Y",strtotime($day));
 		$time=$_POST['time'];
 		$number=$_POST['number'];
-		$query="insert into booking(Appointmentnumber,username,category,date,time) values('$number','$id','$select','$date','$time')";
+		$query="Insert into booking(Appointmentnumber,patient_name,category,date,time,username) values('$number','$patient_name','$select','$date','$time','$usrnm')";
+		$querynew="UPDATE `patient_dental_visit_status` SET `Status` = 'not_notified' WHERE `patient_dental_visit_status`.`Username` = '$usrnm'";
 		mysqli_query($connection,$query);
+		mysqli_query($connection,$querynew);
 		mysqli_close($connection);
 	}
 	function delete(Appointment $appointment){
