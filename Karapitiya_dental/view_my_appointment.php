@@ -115,7 +115,7 @@ function selectedRowInput(){
 			var date=this.cells[0].innerHTML;
 			var app_num=this.cells[1].innerHTML;
 			var treatment=this.cells[2].innerHTML;
-			var btnval=$('#btn').val();
+			var btnval=this.cells[3].innerHTML;
 			$.ajax({
 			url:"delete.php",
 			method:"POST",

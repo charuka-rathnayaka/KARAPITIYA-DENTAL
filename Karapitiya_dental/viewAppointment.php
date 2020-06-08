@@ -131,7 +131,7 @@ if (empty($_SESSION['username'])) {
             <?php
             $database = mysqli_connect('localhost', 'root', '', 'dentalkarapitiya');
 
-            $date = date("Y/m/d");
+            $date = date("d-m-Y");
             $ss = "SELECT * FROM booking WHERE `date`='$date'";
             $re = mysqli_query($database, $ss);
             $data = array();
@@ -160,7 +160,7 @@ if (empty($_SESSION['username'])) {
             <?php
             $database = mysqli_connect('localhost', 'root', '', 'dentalkarapitiya');
 
-            $date = date("Y/m/d");
+            $date = date("d-m-Y");
             $ss = "SELECT * FROM waitinglist WHERE `date`='$date'";
             $re = mysqli_query($database, $ss);
             $data = array();

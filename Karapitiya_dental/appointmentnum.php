@@ -1,7 +1,7 @@
 <?php
 $database = mysqli_connect('localhost', 'root', '', 'dentalkarapitiya');
 
-$date = date("Y/m/d");
+$date = date("d-m-Y");
 $username = $_POST["postusername"];
 
 $ss = "SELECT * FROM booking WHERE `date`='$date' AND `username` = '$username' ";

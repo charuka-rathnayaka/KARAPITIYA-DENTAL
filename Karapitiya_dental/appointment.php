@@ -132,7 +132,8 @@ class ConfirmedState extends State{
 		$connection = $database->connect();
 		$id=$_POST['id'];
 		$select=$_POST['choice'];
-		$date=$_POST['date'];
+		$day=$_POST['date'];
+		$date=date("d-m-Y",strtotime($day));
 		$time=$_POST['time'];
 		$number=$_POST['number'];
 		$query="insert into booking(Appointmentnumber,username,category,date,time) values('$number','$id','$select','$date','$time')";
