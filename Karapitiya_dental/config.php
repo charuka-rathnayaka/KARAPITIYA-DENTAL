@@ -2,6 +2,7 @@
  session_start();
  
  include("user_management.php");
+ include("dental_visit_reminder.php");
 
  
  $errors=array();
@@ -86,6 +87,10 @@ if(isset($_POST['login'])){
         }
         else if (get_class($user)=="Staff"){
             $_SESSION["user_type"]=get_class($user);
+            $tody=date("Y-m-d");
+            $reminder = Reminder::getInstance("2014-05-26");
+            $reminder->send_reminders($tody);
+            $reminder->setdate($tody);
             $_SESSION['success']="Now you are logged in staff"; 
             $_SESSION['username']=$user->get_username();
             header('location: index.php');
