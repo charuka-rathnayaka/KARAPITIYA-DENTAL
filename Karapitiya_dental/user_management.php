@@ -1,6 +1,7 @@
 <?php
-include_once("database_server.php");
-include_once("users.php");
+//include_once("database_server.php");
+include("users.php");
+include("user_handler.php");
 class Manage_user{
    
     public $database;
@@ -13,39 +14,18 @@ class Manage_user{
 
 function login_user($username,$pass){
             $password=md5($pass);
-            $sql_query7="SELECT * FROM `staff_accounts` WHERE `Username`='$username' AND `password`='$password'";
-            $result_staff=mysqli_query($this->database,$sql_query7);
-            if((mysqli_num_rows($result_staff)>0) && ($username=="admin")){
-                $row = $result_staff->fetch_assoc();
-                $admin=new Admin($username,$row["Password"]);
-                return $admin;
-                
-            }
-            elseif((mysqli_num_rows($result_staff)>0) && ($username=="staff")){
-                $row = $result_staff->fetch_assoc();
-                $staff=new Staff($username,$row["Password"]);
-                return $staff;
-            }
-            else{
-           
-            $sql_query3="SELECT * FROM `doctor_accounts` WHERE `Username`='$username' AND `password`='$password'";
-            $result_doctor=mysqli_query($this->database,$sql_query3);
-            $sql_query2="SELECT * FROM `patient_accounts` WHERE `Username`='$username' AND `password`='$password'";
-            $result_patient=mysqli_query($this->database,$sql_query2);
-            if(mysqli_num_rows($result_doctor)>0){
-                $row = $result_doctor->fetch_assoc();
-                $doctor=new Doctor($row["Reg_Num"],$row["Firstname"],$row["Lastname"],$row["Email"],$row["Birthday"],$row["Gender"],$row["Qualifications"],$username,$password);
-                return $doctor;
-            }
-            else if(mysqli_num_rows($result_patient)>0){
-                $row = $result_patient->fetch_assoc();
-                $patient=new Patient($row["Firstname"],$row["Lastname"],$row["Email"],$row["Birthday"],$row["Gender"],$username,$password);
+            $request=new Request($username,$password,$this->database);
+            $admin_handler=new AdminHandler();
+            $staff_handler=new StaffHandler();
+            $doctor_handler=new DoctorHandler();
+            $patient_handler=new PatientHandler();
+            $admin_handler->set_successor($staff_handler);
+            $staff_handler->set_successor($doctor_handler);
+            $doctor_handler->set_successor($patient_handler);
+            $user=$admin_handler->handle_request_imp($request);
+            return $user;
 
-                return $patient;
-               
-            }       
-        
-    }
+         
 }
 function register_patient($Firstname,$Lastname,$Email,$Birthday,$Gender,$Username,$pass){
     $password=md5($pass);
