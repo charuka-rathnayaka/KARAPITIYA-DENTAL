@@ -1,14 +1,16 @@
+<?php
 include_once('database_server.php');
+//include('email_factory.php');
 
 
 
     
 function send_reminder_mail($to_email,$firstname){
-    $subject = "Dental Visit Reminder";
-    $body ="Hi $firstname,"."\n\n"."         Hope you are in good health. Our records show that it has been three months from your last visit to the dental clinic. So we hope it is time for you to have a dental checkup. Plese follow our website to add a dental appointment so you can experience our service efficiently. Looking forward to meet you!"."\n\n"."Dental Unit,"."\n"."Karapitiya Teaching Hospital.";
-    $headers = "From: KARAPITIYA DENTAL";
     
-    mail($to_email, $subject, $body, $headers);
+    $email_fac=new ReminderFactory();
+    $email=$email_fac->operate($to_email,$firstname);
+    $email_app=new EmailSender($email);
+    $email_app->send_email();
     
     }
     
@@ -18,25 +20,28 @@ function send_reminder_mail($to_email,$firstname){
 class Reminder{
     // Hold the class instance.
     private static $instance = null;
-    protected $date;
+    protected static $date="2020-04-05";
     
     // The constructor is private
     // to prevent initiation with outer code.
-    private function __construct($date)
+    private function __construct()
     {
-        $this->date=$date;
+       
    
     }
    public function setdate($newdate){
     $this->date=$newdate;
    }
+   public function get_date(){
+    return $this->date;
+   }
     // The object is created from within the class itself
     // only if the class has no instance.
-    public static function getInstance($day)
+    public static function getInstance()
     {
       if (self::$instance == null)
       {
-        self::$instance = new Reminder($day);
+        self::$instance = new Reminder();
       }
    
       return self::$instance;
@@ -78,4 +83,3 @@ class Reminder{
 
 
 ?>
-

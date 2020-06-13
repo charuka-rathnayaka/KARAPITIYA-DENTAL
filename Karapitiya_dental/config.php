@@ -3,6 +3,7 @@
  
  include("user_management.php");
  include("dental_visit_reminder.php");
+ include("email_factory.php");
 
  
  $errors=array();
@@ -56,6 +57,10 @@
             $_SESSION["user_type"]=get_class($user);
             $_SESSION['success']="Now you are logged in patient "; 
             $_SESSION['username']=$user->get_username();
+            $email_fac=new RegisterFactory();
+            $email=$email_fac->operate($_SESSION["Email"],$_SESSION["Firstname"]);
+            $email_app=new EmailSender($email);
+            $email_app->send_email();
             header('location: index.php');
         }
         else{
@@ -88,7 +93,7 @@ if(isset($_POST['login'])){
         else if (get_class($user)=="Staff"){
             $_SESSION["user_type"]=get_class($user);
             $tody=date("Y-m-d");
-            $reminder = Reminder::getInstance("2014-05-26");
+            $reminder = Reminder::getInstance();
             $reminder->send_reminders($tody);
             $reminder->setdate($tody);
             $_SESSION['success']="Now you are logged in staff"; 
