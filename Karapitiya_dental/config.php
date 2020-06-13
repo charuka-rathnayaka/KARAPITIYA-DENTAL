@@ -75,6 +75,9 @@ if(isset($_POST['login'])){
     if(count($errors) == 0 ){
         $user_manage=new Manage_user();
         $user=$user_manage->login_user($_POST["username"],$_POST["password"]);
+        if(is_null($user)){
+                array_push($errors,"Unknown error");}
+        else{
         if (get_class($user)=="Admin"){
             $_SESSION["user_type"]=get_class($user);
             $_SESSION['success']="Now you are logged in admin"; 
@@ -102,7 +105,10 @@ if(isset($_POST['login'])){
         }
         else{
             array_push($errors,"Username and Password are incorrect");
-        }
+        }}
+        
+
+
 }
 }
 
