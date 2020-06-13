@@ -8,8 +8,8 @@ function clock() {
   var status = document.getElementById("status");
   var h = new Date().getHours();
   var day = new Date().getDay();
-  if (0 < day && day < 6) {
-    if (8 <= h && h <= 24) {
+  if (0 < day && day < 8) {
+    if (8 <= h && h <= 19) {
       setInterval(getting(), 1000);
       status.innerHTML = "Next Appointment Number";
     } else {

@@ -21,25 +21,38 @@ if (empty($_SESSION['username'])) {
     if (isset($_POST['submit'])) {
         $database = mysqli_connect('localhost', 'root', '', 'dentalkarapitiya');
         $username = $_POST['username'];
+        $patient_name = $_POST['patient_name'];
+        $appointment_ID = $_POST['appointment_ID'];
         $date = $_POST['date'];
         $appointmentnumber = $_POST['appointmentnumber'];
         $category = $_POST['category'];
         $ss = "SELECT * FROM pastappoitment WHERE `date`='$date' && `username` = '$username' AND `appointmentnumber`='$appointmentnumber'";
         $re = mysqli_query($database, $ss);
         $table = $_POST['table'];
-        if ($table == "booking") {
+        $check = $_POST['check'];
+        echo $check;
+        if ($check) {
             if (mysqli_num_rows($re) <= 0) {
-                $sql = "INSERT INTO waitinglist (username,date,Appointmentnumber,category) VALUES ('$username','$date','$appointmentnumber','$category ');";
+                $sql = "INSERT INTO todayappointment (username,date,Appointmentnumber,category,appointment_ID,patient_name) VALUES ('$username','$date','$appointmentnumber','$category ','$appointment_ID','$patient_name');";
                 mysqli_query($database, $sql);
                 $sql2 = "DELETE FROM booking WHERE `username`='$username' AND `date`='$date' AND `Appointmentnumber`='$appointmentnumber'";
                 mysqli_query($database, $sql2);
             }
-        } else if ($table == "waitinglist") {
-            if (mysqli_num_rows($re) <= 0) {
-                $sql = "INSERT INTO booking (username,date,Appointmentnumber,category) VALUES ('$username','$date','$appointmentnumber','$category ');";
-                mysqli_query($database, $sql);
-                $sql2 = "DELETE FROM waitinglist WHERE `username`='$username' AND `date`='$date' AND `Appointmentnumber`='$appointmentnumber'";
-                mysqli_query($database, $sql2);
+        } else {
+            if ($table == "booking") {
+                if (mysqli_num_rows($re) <= 0) {
+                    $sql = "INSERT INTO waitinglist (username,date,Appointmentnumber,category,appointment_ID,patient_name) VALUES ('$username','$date','$appointmentnumber','$category ','$appointment_ID','$patient_name');";
+                    mysqli_query($database, $sql);
+                    $sql2 = "DELETE FROM booking WHERE `username`='$username' AND `date`='$date' AND `Appointmentnumber`='$appointmentnumber'";
+                    mysqli_query($database, $sql2);
+                }
+            } else if ($table == "waitinglist") {
+                if (mysqli_num_rows($re) <= 0) {
+                    $sql = "INSERT INTO booking (username,date,Appointmentnumber,category,appointment_ID,patient_name) VALUES ('$username','$date','$appointmentnumber','$category ','$appointment_ID','$patient_name');";
+                    mysqli_query($database, $sql);
+                    $sql2 = "DELETE FROM waitinglist WHERE `username`='$username' AND `date`='$date' AND `Appointmentnumber`='$appointmentnumber'";
+                    mysqli_query($database, $sql2);
+                }
             }
         }
         header('Location:viewAppointment.php');
@@ -123,6 +136,8 @@ if (empty($_SESSION['username'])) {
             <thead>
                 <tr>
                     <th>User name</th>
+                    <th>Name</th>
+                    <th>Patient ID</th>
                     <th>Date</th>
                     <th>Appointment Number</th>
                     <th>Traetment</th>
@@ -137,7 +152,7 @@ if (empty($_SESSION['username'])) {
             $data = array();
             if (mysqli_num_rows($re) > 0) {
                 while ($rows = mysqli_fetch_assoc($re)) {
-                    echo "<form class='tbl' method='POST' id='appointmentdata'  ><input type='hidden' name='table' value='booking'><tr><td>" . $rows["username"] . "<input type='hidden' name='username' value='" . $rows["username"] . "'></td><td>" . $rows["date"] . "<input type='hidden' name='date' value='" . $rows["date"] . "'></td><td >" . $rows["Appointmentnumber"] . "<input type='hidden' name='appointmentnumber' value='" . $rows["Appointmentnumber"] . "'></td><td >" . $rows["category"] . "<input type='hidden' name='category' value='" . $rows["category"] . "'></td> <td><input type='submit' name='submit'></td></tr></form>";
+                    echo "<form class='tbl' method='POST' id='appointmentdata'  ><input type='hidden' name='table' value='booking'><tr><td>" . $rows["username"] . "<input type='hidden' name='username' value='" . $rows["username"] . "'></td><td>" . $rows["patient_name"] . "<input type='hidden' name='patient_name' value='" . $rows["patient_name"] . "'></td><td>" . $rows["appointment_ID"] . "<input type='hidden' name='appointment_ID' value='" . $rows["appointment_ID"] . "'></td><td>" . $rows["date"] . "<input type='hidden' name='date' value='" . $rows["date"] . "'></td><td >" . $rows["Appointmentnumber"] . "<input type='hidden' name='appointmentnumber' value='" . $rows["Appointmentnumber"] . "'></td><td >" . $rows["category"] . "<input type='hidden' name='category' value='" . $rows["category"] . "'></td> <td><input name='check' type='checkbox'></td><td><input type='submit' name='submit'></td></tr></form>";
                 }
             }
 
@@ -152,9 +167,12 @@ if (empty($_SESSION['username'])) {
             <thead>
                 <tr>
                     <th>User name</th>
+                    <th>Name</th>
+                    <th>Patient ID</th>
                     <th>Date</th>
                     <th>Appointment Number</th>
                     <th>Traetment</th>
+
                 </tr>
             </thead>
             <?php
@@ -166,7 +184,7 @@ if (empty($_SESSION['username'])) {
             $data = array();
             if (mysqli_num_rows($re) > 0) {
                 while ($rows = mysqli_fetch_assoc($re)) {
-                    echo "<form class='tbl' method='POST' id='appointmentdata' ><input type='hidden' name='table' value='waitinglist'><tr><td>" . $rows["username"] . "<input type='hidden' name='username' value='" . $rows["username"] . "'></td><td>" . $rows["date"] . "<input type='hidden' name='date' value='" . $rows["date"] . "'></td><td >" . $rows["Appointmentnumber"] . "<input type='hidden' name='appointmentnumber' value='" . $rows["Appointmentnumber"] . "'></td><td >" . $rows["category"] . "<input type='hidden' name='category' value='" . $rows["category"] . "'></td> <td><input type='submit' name='submit'></td></tr></form>";
+                    echo "<form class='tbl' method='POST' id='appointmentdata' ><input type='hidden' name='table' value='waitinglist'><tr><td>" . $rows["username"] . "<input type='hidden' name='username' value='" . $rows["username"] . "'></td><td>" . $rows["patient_name"] . "<input type='hidden' name='patient_name' value='" . $rows["patient_name"] . "'></td><td>" . $rows["appointment_ID"] . "<input type='hidden' name='appointment_ID' value='" . $rows["appointment_ID"] . "'></td><td>" . $rows["date"] . "<input type='hidden' name='date' value='" . $rows["date"] . "'></td><td >" . $rows["Appointmentnumber"] . "<input type='hidden' name='appointmentnumber' value='" . $rows["Appointmentnumber"] . "'></td><td >" . $rows["category"] . "<input type='hidden' name='category' value='" . $rows["category"] . "'></td> <td><input type='submit' name='submit'></td></tr></form>";
                 }
             }
 
