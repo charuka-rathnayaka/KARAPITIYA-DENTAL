@@ -105,12 +105,12 @@ if (empty($_SESSION['username'])) {
                 <?php
                 $database = mysqli_connect('localhost', 'root', '', 'dentalkarapitiya');
                 $date = date("d-m-Y");
-                $ss = "SELECT * FROM booking WHERE `date`='$date'";
+                $ss = "SELECT * FROM todayappointment WHERE `date`='$date'";
                 $re = mysqli_query($database, $ss);
                 $data = array();
                 if (mysqli_num_rows($re) > 0) {
                     while ($rows = mysqli_fetch_assoc($re)) {
-                        echo "<tr id=" . $rows["Appointmentnumber"] . "><td>" . $rows["username"] . "</td><td>" . $rows["date"] . "</td><td>" . $rows["Appointmentnumber"] . "</td><td>" . $rows["category"] . "</td></tr>";
+                        echo "<tr id=" . $rows["Appointmentnumber"] . "><td>" . $rows["username"] . "</td><td>" . $rows["patient_name"] . "</td><td>" . $rows["date"] . "</td><td>" . $rows["Appointmentnumber"] . "</td><td>" . $rows["category"] . "</td></tr>";
                     }
                 }
 

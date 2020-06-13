@@ -194,4 +194,3 @@ class DeleteState extends State{
 		/*echo "Appointment closed";*/
 	}
 }
-?>
