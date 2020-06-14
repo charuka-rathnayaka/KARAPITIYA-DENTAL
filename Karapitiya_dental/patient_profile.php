@@ -1,7 +1,7 @@
 <?php
-include_once("database_server.php");
-include('users.php'); 
-include('config.php'); 
+//include_once("database_server.php");
+include_once('users.php'); 
+include_once('config.php'); 
 $db_connect=new Db_Connection();
 $database=$db_connect->connect();
 $username=$_SESSION["username"];
