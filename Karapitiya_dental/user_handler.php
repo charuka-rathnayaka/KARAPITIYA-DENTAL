@@ -1,5 +1,5 @@
 <?php
-include("database_server.php");
+include_once("database_server.php");
 
 /* This code part implements the chain of responsinility design pattern*/
 
