@@ -1,6 +1,6 @@
 <?php
-//include_once("database_server.php");
-include("users.php");
+include_once("database_server.php");
+include_once("users.php");
 include("user_handler.php");
 class Manage_user{
    
