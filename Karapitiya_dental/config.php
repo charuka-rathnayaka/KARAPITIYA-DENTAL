@@ -1,9 +1,10 @@
 <?php
  session_start();
  
- include("user_management.php");
+ 
  include("dental_visit_reminder.php");
  include("email_factory.php");
+ include("UserManagementStrategy.php");
 
  
  $errors=array();
@@ -49,10 +50,18 @@
     if($_POST["password1"]!=$_POST["password2"]){
         array_push($errors,"Passwords does not match");
     }
-    $user_manage=new Manage_user();
-    $user_manage->check_patient_username($_POST["username"]);
+    
+    $user_managee=new UserManagement();
+    $user_managee->SetCheckUsernamerStrategy(new CheckPatientUsernameStrategy());
+    $user_managee->SetRegisterStrategy(new RegisterPatientStrategy());
+    $check_username=$user_managee->checkusername($_POST["username"]);
+    if($check_username==true){
+        array_push($errors,"Username is already used. Please use another Username.");
+    }
+    
     if(count($errors)==0){
-        $user=$user_manage->register_patient($_SESSION["Firstname"],$_SESSION["Lastname"],$_SESSION["Email"],$_SESSION["birthday"],$_SESSION["gender"],$_POST["username"],$_POST["password1"]);
+        $array_data=array($_SESSION["Firstname"],$_SESSION["Lastname"],$_SESSION["Email"],$_SESSION["birthday"],$_SESSION["gender"],$_POST["username"],$_POST["password1"]);
+        $user=$user_managee->register($array_data);
         if (get_class($user)=="Patient"){
             $_SESSION["user_type"]=get_class($user);
             $_SESSION['success']="Now you are logged in patient "; 
@@ -79,8 +88,9 @@ if(isset($_POST['login'])){
         array_push($errors,"Please enter password");
     }
     if(count($errors) == 0 ){
-        $user_manage=new Manage_user();
-        $user=$user_manage->login_user($_POST["username"],$_POST["password"]);
+       
+        $user_managee=new UserManagement();
+        $user=$user_managee->login_user($_POST["username"],$_POST["password"]);
         if(is_null($user)){
                 array_push($errors,"Unknown error");}
         else{
@@ -156,22 +166,66 @@ if (isset($_POST['add_doctor'])){
         array_push($errors,"Passwords does not match");
     }
     $username=$_POST["username"];
-    $user_manage=new Manage_user();
-    $user_manage->check_doctor_username($_POST["username"]);
+    $user_managee=new UserManagement();
+    $user_managee->SetRegisterStrategy(new RegisterDoctorStrategy());
+    $user_managee->SetCheckUsernamerStrategy(new CheckDoctorUsernameStrategy());
+    $check_username=$user_managee->checkusername($_POST["username"]);
+    if($check_username==true){
+        array_push($errors,"Username is already used. Please use another Username.");
+    }
     if(count($errors)==0){
         $password=md5($_POST["password1"]);
-        
-        $user=$user_manage->register_doctor($_POST["Reg_Num"],$_POST["Firstname"],$_POST["Lastname"],$_POST['Email'],$_POST['Birthday'],$_POST['Gender'],$_POST['Qualifications'],$_POST["username"],$password);
-        header("location:index_admin.php");
+        $array_data=array($_POST["Reg_Num"],$_POST["Firstname"],$_POST["Lastname"],$_POST['Email'],$_POST['Birthday'],$_POST['Gender'],$_POST['Qualifications'],$_POST["username"],$password);
+        $user=$user_managee->register($array_data);
+        header("location:index.php");
     }
       
 }
 
 if (isset($_GET['logout'])){
         session_destroy();
-        
         header('location: index.php');
 }
+
+if(isset($_POST["change_password"])){
+    if(empty($_POST["password1"])){
+        array_push($errors,"Password is required");
+    }if(empty($_POST["password2"])){
+        array_push($errors,"Password confirmation is required");
+    }
+
+    if(count($errors)==0){
+        $password=md5($_POST["password1"]);
+        $username=$_SESSION["username"];
+        $user_managee=new UserManagement();
+        $res=$user_managee->change_password($username,$password);
+        if($res==true){
+        header("location:my_profile.php");}
+        else{
+            array_push($errors,"Error occured");
+        }
+    }}
+    if(isset($_POST["confirm_password"])){
+        if(empty($_POST["password1"])){
+            array_push($errors,"Please enter the password");
+        
+        }
+        if(count($errors)==0){
+            $password=md5($_POST["password1"]);
+            $username=$_SESSION["username"];
+            $user_managee=new UserManagement();
+            $res=$user_managee->confirm_password($username,$password);
+            if($res==true){
+                $_SESSION["password_confirmation"]="True";
+            header("location:change_password.php");
+            
+        }
+            else{
+                array_push($errors,"Password incorrect");
+            }
+        }
+    }
+
 
 
 
@@ -179,3 +233,4 @@ if (isset($_GET['logout'])){
 
 
 ?>
+
