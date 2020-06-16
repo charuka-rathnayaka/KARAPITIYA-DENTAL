@@ -1,5 +1,5 @@
 <?php include('config.php');
-//include('patient_profile.php');
+//require_once('patient_profile.php');
 if (empty($_SESSION['username'])) {
     header("location:login.php");
 } ?>
@@ -93,8 +93,9 @@ if (empty($_SESSION['username'])) {
 
         <div class="input-data">
             <label>Username :</label>
-
             <label id="Username"></label>
+
+          
 
         </div>
 
@@ -123,30 +124,47 @@ if (empty($_SESSION['username'])) {
             <label>Gender:</label>
             <label id="Gender"></label>
 
-        </div>
-        <div class="input-data">
-            <label>Dental History:</label>
-
 
         </div>
+        <button id="myButton" class="float-left submit-button" >Change Password</button>
+
+        <script type="text/javascript">
+            document.getElementById("myButton").onclick = function () {
+            location.href = "confirm_password.php";
+            };
+        </script>
+       <button onclick="myFunction()">View Dental History</button>
+
+    <script>
+        function myFunction() {
+            window.open("dental_history_table.php", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,top=100,left=300,width=700,height=400");
+   
+}
+</script>
+        
+        
 
     </div>
     <script>
         var xmlhttp = new XMLHttpRequest();
+     
 
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 myObj = JSON.parse(this.responseText);
+                ;
                 document.getElementById("Firstname").innerHTML = myObj.Firstname;
                 document.getElementById("Lastname").innerHTML = myObj.Lastname;
                 document.getElementById("Email").innerHTML = myObj.Email;
                 document.getElementById("Birthday").innerHTML = myObj.Birthday;
                 document.getElementById("Gender").innerHTML = myObj.Gender;
                 document.getElementById("Username").innerHTML = myObj.Username;
+              
             }
         };
         xmlhttp.open("GET", "patient_profile.php", true);
         xmlhttp.send();
+
     </script>
 
 </body>
