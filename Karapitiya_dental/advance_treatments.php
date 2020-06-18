@@ -13,10 +13,10 @@
         </div>
         
         <div class="navbar">
-            <a href="index.php">Home</a>
+            <a href="index.php"> <img src="icons/Home.svg" class="navBarIcons"> Home</a>
             <div id="part1">
             <div class="dropdown">
-                <button class="dropbtn">Treatments
+                <button class="dropbtn"> <img src="icons/Treat.svg" class="navBarIcons"> Treatments
                     <i class="fa fa-caret-down"></i>
                 </button>
             <div class="dropdown-content">
@@ -27,7 +27,7 @@
             </div>
             <div id="part2">
             <div class="dropdown">
-                <button class="dropbtn">Appointments
+                <button class="dropbtn"> <img src="icons/Appoint.svg" class="navBarIcons"> Appointments
                     <i class="fa fa-caret-down"></i>
                 </button>
             <div class="dropdown-content">
@@ -36,11 +36,11 @@
             </div>
             </div>
             <div id="part3">
-            <a href="my_profile.php">My Profile</a>
+            <a href="my_profile.php"> <img src="icons/Profile.svg" class="navBarIcons"> My Profile</a>
 </div>
             <div id="part4">
-            <a href="about_us.php">About</a>
-            <a href="contact_us.php">Contact</a>
+            <a href="about_us.php"> <img src="icons/About.svg" class="navBarIcons"> About</a>
+            <a href="contact_us.php"> <img src="icons/Contact.svg" class="navBarIcons"> Contact</a>
 </div>
             </div>
             
@@ -77,6 +77,49 @@
                 <p> <a href='login.php' style="color:blue;">Login</a></p>
                 </div>
                 <?php endif ?>
+            </div>
+            <div class="treatmentsContainer"> 
+                <p> Given below are the advanced treatments we provide: </p>
+                <ul>
+                    <l>
+                        <h2>Nerve Filling</h2>
+                        <p>Two of the most common procedures for tooth nerve pain are fillings and root canals. Fillings:
+                             If you have tooth nerve pain caused by a simple cavity, a filling is the most common dental repair.
+                              When you have a tooth filled, the dentist numbs the area, removes the decayed material, and replaces it with
+                               a filling.</p>
+                    </l>
+                    <l>
+                        <h2>Dental Implants</h2>
+                        <p>Implants are a fixed alternative to removable dentures. They may be the only option if the loss of teeth has caused 
+                            the mouth to shrink so it can no longer support dentures.  You can use implants to replace just a single tooth or 
+                            several teeth.To fit an implant, titanium screws are drilled into the jaw bone to support a crown, bridge or 
+                            denture.Replacement parts take time to prepare. This is to ensure that they fit your mouth and other teeth properly.
+                             This means they may not be available on your first visit to the dentist.Implants are usually only available privately
+                              and are expensive. They're sometimes available on the NHS for patients who can't wear dentures or whose face and 
+                              teeth have been damaged, such as people who have had mouth cancer or an accident that's knocked a tooth out.</p>
+                    </l>
+                    <l>
+                        <h2>Orthodontics</h2>
+                        <p>Braces (orthodontic treatment) straighten or move teeth to improve the appearance of the teeth and how they work. 
+                            Braces can be removable, so you can take them out and clean them, or fixed, so they're stuck to your teeth and you
+                             can't take them out.They can be made of metal, plastic or ceramic. Invisible braces are made of a clear plastic. 
+                             Braces are available on the NHS for children and, occasionally, for adults, depending on the clinical need.</p>
+                    </l>
+                    <l>
+                        <h2>Crowns</h2>
+                        <p>A crown is a type of cap that completely covers a real tooth. It's made from either metal,
+                             or porcelain and metal, and is fixed in your mouth. Crowns can be fitted where a tooth has 
+                             broken, decayed or been damaged, or just to make a tooth look better. To fit a crown, the old 
+                             tooth will need to be drilled down so it's like a small peg the crown will be fixed on to. It can take 
+                             some time for the lab to prepare a new crown, so you probably won't have the crown fitted on the same day.</p>
+                    </l>
+                    <l>
+                        <h2>Bridges</h2>
+                        <p>A bridge is a fixed replacement for a missing tooth or teeth. It's made by taking an impression of the 
+                            surrounding teeth, which will eventually support the bridge. A bridge is usually created from precious metal 
+                            and porcelain and will be fixed in your mouth (unlike dentures, which can be removed).</p>
+                    </l>
+                </ul>
             </div>
     </body>
 </html>
