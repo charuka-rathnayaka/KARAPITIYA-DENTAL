@@ -6,47 +6,47 @@ if (empty($_SESSION['username'])) {
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>My Profile</title>
-    <link rel="stylesheet" type="text/css" href=stylesheet_my_profile.css>
-</head>
-
-<body>
+    <head>
+        <title>My Profile</title>
+        <link rel="stylesheet" type="text/css" href=stylesheet_my_profile.css>
+    </head>
+    <body>
     <div class="header">
-        <h2>DENTAL UNIT - KARAPITIYA TEACHING HOSPITAL</h2>
-
-    </div>
-    <div class="navbar">
-        <a href="index.php">Home</a>
-        <div id="part1">
+            <h2>DENTAL UNIT - KARAPITIYA TEACHING HOSPITAL</h2>
+            
+        </div>
+        
+        <div class="navbar">
+            <a href="index.php"> <img src="icons/Home.svg" class="navBarIcons"> Home</a>
+            <div id="part1">
             <div class="dropdown">
-                <button class="dropbtn">Treatments
+                <button class="dropbtn"> <img src="icons/Treat.svg" class="navBarIcons"> Treatments
                     <i class="fa fa-caret-down"></i>
                 </button>
-                <div class="dropdown-content">
-                    <a href="basic_treatments.php">Basic Treatments</a>
-                    <a href="advance_treatments.php">Advance Treatments</a>
-                </div>
+            <div class="dropdown-content">
+                <a href="basic_treatments.php">Basic Treatments</a>
+                <a href="advance_treatments.php">Advance Treatments</a>  
+</div> 
             </div>
-        </div>
-        <div id="part2">
+            </div>
+            <div id="part2">
             <div class="dropdown">
-                <button class="dropbtn">Appointments
+                <button class="dropbtn"> <img src="icons/Appoint.svg" class="navBarIcons"> Appointments
                     <i class="fa fa-caret-down"></i>
                 </button>
-                <div class="dropdown-content">
-                    <a href="add_new_appointment.php">Make new Appointment</a>
-                    <a href="view_my_appointment.php">View My Appointments</a> </div>
+            <div class="dropdown-content">
+                <a href="add_new_appointment.php">Make new Appointment</a>
+                <a href="view_my_appointment.php">View My Appointments</a>   </div>
             </div>
-        </div>
-        <div id="part3">
-            <a href="my_profile.php">My Profile</a>
-        </div>
-        <div id="part4">
-            <a href="about_us.php">About</a>
-            <a href="contact_us.php">Contact</a>
-        </div>
-    </div>
+            </div>
+            <div id="part3">
+            <a href="my_profile.php"> <img src="icons/Profile.svg" class="navBarIcons"> My Profile</a>
+</div>
+            <div id="part4">
+            <a href="about_us.php"> <img src="icons/About.svg" class="navBarIcons"> About</a>
+            <a href="contact_us.php"> <img src="icons/Contact.svg" class="navBarIcons"> Contact</a>
+</div>
+            </div>
 
     <?php include('user_type_menu.php');
     ?>
