@@ -187,6 +187,8 @@ if (isset($_GET['logout'])){
         header('location: index.php');
 }
 
+
+
 if(isset($_POST["change_password"])){
     if(empty($_POST["password1"])){
         array_push($errors,"Password is required");
@@ -197,23 +199,52 @@ if(isset($_POST["change_password"])){
     if(count($errors)==0){
         $password=md5($_POST["password1"]);
         $username=$_SESSION["username"];
+        $user_type=$_SESSION["user_type"];
         $user_managee=new UserManagement();
+            if($user_type=="Patient"){
+            $user_managee->SetChangePasswordStrategy(new ChangePatientPasswordStrategy());
+            }
+            else if ($user_type=="Doctor"){
+                $user_managee->SetChangePasswordStrategy(new ChangeDoctorPasswordStrategy());
+            }
+            else{
+                array_push($errors,"Unauthorized action - Password Cannot be changed ");
+            }
         $res=$user_managee->change_password($username,$password);
         if($res==true){
+            if($user_type=="Patient"){
         header("location:my_profile.php");}
+            else{
+                header("location:profile_doctor.php");} 
+            }
         else{
             array_push($errors,"Error occured");
         }
     }}
-    if(isset($_POST["confirm_password"])){
-        if(empty($_POST["password1"])){
-            array_push($errors,"Please enter the password");
+
+
+
+
+if(isset($_POST["confirm_password"])){
+    if(empty($_POST["password1"])){
+        array_push($errors,"Please enter the password");
         
-        }
-        if(count($errors)==0){
-            $password=md5($_POST["password1"]);
-            $username=$_SESSION["username"];
+    }
+    if(count($errors)==0){
+        $password=md5($_POST["password1"]);
+        $username=$_SESSION["username"];
+            $user_type=$_SESSION["user_type"];
             $user_managee=new UserManagement();
+            if($user_type=="Patient"){
+            $user_managee->SetConfirmPasswordStrategy(new ConfirmPatientPasswordStrategy());
+            }
+            else if ($user_type=="Doctor"){
+                $user_managee->SetConfirmPasswordStrategy(new ConfirmDoctorPasswordStrategy());
+            }
+            else{
+                array_push($errors,"Alert : Unauthorized action");
+            }
+            
             $res=$user_managee->confirm_password($username,$password);
             if($res==true){
                 $_SESSION["password_confirmation"]="True";

@@ -126,6 +126,14 @@ if (empty($_SESSION['username']) || ($_SESSION['user_type']!="Doctor")){
                 <label id='Qualifications'>></label>
                 
             </div>
+            <br>
+            <button id="myButton" class="float-left submit-button" >Change Password</button>
+
+        <script type="text/javascript">
+            document.getElementById("myButton").onclick = function () {
+            location.href = "confirm_password.php";
+            };
+        </script>
             
             
             </div>
@@ -153,3 +161,4 @@ xmlhttp.send();
            
     </body>
 </html>
+

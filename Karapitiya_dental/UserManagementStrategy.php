@@ -14,7 +14,9 @@ class UserManagement
      */
     private $register_strategy;
     private $check_username_strategy;
+    private $confirm_password_strategy;
     protected $database;
+    protected $change_password_strategy;
 
 
     /**
@@ -44,7 +46,7 @@ class UserManagement
 
      
 }
-    function change_password($username,$password){
+   /* function change_password($username,$password){
         $sql_query45="UPDATE `patient_accounts` SET `Password` = '$password' WHERE `Username` = '$username'";
         $result=mysqli_query($this->database,$sql_query45); 
         if($result){
@@ -54,18 +56,8 @@ class UserManagement
             return false;
         }
 
-    }
-    function confirm_password($username,$password){
-        $sql_query10="SELECT * FROM `patient_accounts` WHERE `Username`='$username' AND `Password`='$password'";
-        $result=mysqli_query($this->database,$sql_query10);
-        if(mysqli_num_rows($result)>0){
-            return true;
-        }
-        else {
-            return false;
-        }
-
-    }
+    }*/
+    
 
     /**
      * Usually, the Context allows replacing a Strategy object at runtime.
@@ -78,6 +70,14 @@ class UserManagement
     public function SetCheckUsernamerStrategy(CheckUsernameStrategy $check_username_strategy)
     {
         $this->check_username_strategy = $check_username_strategy;
+    }
+    public function SetConfirmPasswordStrategy(ConfirmPasswordStrategy $confirm_password_strategy)
+    {
+        $this->confirm_password_strategy = $confirm_password_strategy;
+    }
+    public function SetChangePasswordStrategy(ChangePasswordStrategy $change_password_strategy)
+    {
+        $this->change_password_strategy = $change_password_strategy;
     }
 
     /**
@@ -101,6 +101,30 @@ class UserManagement
 
         //echo "Context: Sorting data using the strategy (not sure how it'll do it)\n";
         $result = $this->check_username_strategy->check_username($username);
+        //echo implode(",", $result) . "\n";
+        return $result;
+
+        // ...
+    }
+
+    public function confirm_password($username,$password)
+    {
+        // ...
+
+        //echo "Context: Sorting data using the strategy (not sure how it'll do it)\n";
+        $result = $this->confirm_password_strategy->confirm_password($username,$password);
+        //echo implode(",", $result) . "\n";
+        return $result;
+
+        // ...
+    }
+
+    public function change_password($username,$password)
+    {
+        // ...
+
+        //echo "Context: Sorting data using the strategy (not sure how it'll do it)\n";
+        $result = $this->change_password_strategy->change_password($username,$password);
         //echo implode(",", $result) . "\n";
         return $result;
 
@@ -224,6 +248,112 @@ class CheckDoctorUsernameStrategy extends CheckUsernameStrategy
         return $this->get_is_username_used();
     
         }}
+
+abstract class ConfirmPasswordStrategy
+        {
+            protected $database;
+            protected bool $password_matches=false;
+        
+            public function __construct()
+            {
+                    $db_connect=new Db_Connection();
+                    $this->database=$db_connect->connect();
+                   
+            }
+            public function set_password_matches($bool){
+                $this->password_matches=$bool;
+            }
+            public function get_password_matches(){
+                return $this->password_matches;
+            }
+        
+            public abstract function confirm_password($username,$password);
+        }
+
+class ConfirmPatientPasswordStrategy extends ConfirmPasswordStrategy
+        {
+            public function confirm_password($username,$password)
+            {
+                $sql_query10="SELECT * FROM `patient_accounts` WHERE `Username`='$username' AND `Password`='$password'";
+                $result=mysqli_query($this->database,$sql_query10);
+                if(mysqli_num_rows($result)>0){
+                    return true;
+                }
+                else {
+                    return false;
+                }
+        
+            }
+        }
+class ConfirmDoctorPasswordStrategy extends ConfirmPasswordStrategy
+        {
+            public function confirm_password($username,$password)
+            {
+                $sql_query101="SELECT * FROM `doctor_accounts` WHERE `Username`='$username' AND `Password`='$password'";
+                $result=mysqli_query($this->database,$sql_query101);
+                if(mysqli_num_rows($result)>0){
+                    return true;
+                }
+                else {
+                    return false;
+                }
+        
+            }
+        }
+
+abstract class ChangePasswordStrategy
+        {
+            protected $database;
+            protected bool $password_changed=false;
+        
+            public function __construct()
+            {
+                    $db_connect=new Db_Connection();
+                    $this->database=$db_connect->connect();
+                   
+            }
+            public function set_password_changed($bool){
+                $this->password_changed=$bool;
+            }
+            public function get_password_changed(){
+                return $this->password_changed;
+            }
+        
+            public abstract function change_password($username,$password);
+        }
+
+class ChangePatientPasswordStrategy extends ChangePasswordStrategy
+        {
+            public function change_password($username,$password)
+            {
+                $sql_query45="UPDATE `patient_accounts` SET `Password` = '$password' WHERE `Username` = '$username'";
+                $result=mysqli_query($this->database,$sql_query45); 
+                if($result){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+        
+            }
+        }
+
+class ChangeDoctorPasswordStrategy extends ChangePasswordStrategy
+        {
+            public function change_password($username,$password)
+            {
+                $sql_query44="UPDATE `doctor_accounts` SET `Password` = '$password' WHERE `Username` = '$username'";
+                $result=mysqli_query($this->database,$sql_query44); 
+                if($result){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+        
+            }
+        }
+
 
 
 
