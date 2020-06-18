@@ -129,6 +129,10 @@ body{
     font-size: 20px;
 }
 
+.navBarIcons{
+  height: 30px;
+}
+
 /*
 .input-data label {
     display: block;
