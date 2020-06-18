@@ -20,10 +20,10 @@ if(isset($_SESSION["user_type"])){
             
         </div>
         <div class="navbar">
-            <a href="index.php">Home</a>
+            <a href="index.php"> <img src="icons/Home.svg" class="navBarIcons"> Home</a>
             <div id="part1">
             <div class="dropdown">
-                <button class="dropbtn">Treatments
+                <button class="dropbtn"> <img src="icons/Treat.svg" class="navBarIcons"> Treatments
                     <i class="fa fa-caret-down"></i>
                 </button>
             <div class="dropdown-content">
@@ -34,7 +34,7 @@ if(isset($_SESSION["user_type"])){
             </div>
             <div id="part2">
             <div class="dropdown">
-                <button class="dropbtn">Appointments
+                <button class="dropbtn"> <img src="icons/Appoint.svg" class="navBarIcons"> Appointments
                     <i class="fa fa-caret-down"></i>
                 </button>
             <div class="dropdown-content">
@@ -43,11 +43,11 @@ if(isset($_SESSION["user_type"])){
             </div>
             </div>
             <div id="part3">
-            <a href="my_profile.php">My Profile</a>
+            <a href="my_profile.php"> <img src="icons/Profile.svg" class="navBarIcons"> My Profile</a>
 </div>
             <div id="part4">
-            <a href="about_us.php">About</a>
-            <a href="contact_us.php">Contact</a>
+            <a href="about_us.php"> <img src="icons/About.svg" class="navBarIcons"> About</a>
+            <a href="contact_us.php"> <img src="icons/Contact.svg" class="navBarIcons"> Contact</a>
 </div>
             </div>
             
@@ -93,7 +93,9 @@ if(isset($_SESSION["user_type"])){
                 <?php endif ?>
                 
             </div>
-            
+            <div class="content1">
+            <p>Welcome to the official webpage of the Dental Unit of Karaptiya Teaching Hospital</p>
+            </div>
 
     </body>
 </html>
