@@ -87,3 +87,40 @@
       font-family: "Trebuchet MS", Helvetica, sans-serif;
   }
   
+  .container1{
+    color: rgb(13, 70, 156);
+    font: size 20;;
+  }
+   .phoneIcon{
+     height: 150px;
+   }
+
+   .emailIcon{
+     height: 150px;
+   }
+
+   .addressIcon{
+     height : 150px;
+   }
+   
+   .contactMethods{
+     display: flex;
+     list-style-type: none;
+   }
+
+   .contactMethods li{
+     margin: 2em;
+     text-align: center ;
+   }
+
+   .navBarIcons{
+     height: 30px;
+   }
+
+   .treatmentIcon{
+     height: 50px;
+   }
+
+   .treatmentsContainer ul{
+     list-style-type: none;
+   }
