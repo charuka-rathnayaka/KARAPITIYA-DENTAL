@@ -20,10 +20,10 @@ if (empty($_SESSION['username'])) {
     </div>
 
     <div class="navbar">
-        <a href="index.php">Home</a>
+        <a href="index.php"> <img src="icons/Home.svg" class="navBarIcons"> Home</a>
 
         <div class="dropdown">
-            <button class="dropbtn">Treatments
+            <button class="dropbtn"> <img src="icons/Treat.svg" class="navBarIcons"> Treatments
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
@@ -32,7 +32,7 @@ if (empty($_SESSION['username'])) {
             </div>
         </div>
         <div class="dropdown">
-            <button class="dropbtn">Appointments
+            <button class="dropbtn"> <img src="icons/Appoint.svg" class="navBarIcons"> Appointments
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
@@ -40,9 +40,9 @@ if (empty($_SESSION['username'])) {
                 <a href="view_my_appointment.php">View My Appointments</a>
             </div>
         </div>
-        <a href="my_profile.php">My Profile</a>
-        <a href="about_us.php">About</a>
-        <a href="contact_us.php">Contact</a>
+        <a href="my_profile.php"> <img src="icons/Profile.svg" class="navBarIcons"> My Profile</a>
+        <a href="about_us.php"> <img src="icons/About.svg" class="navBarIcons"> About</a>
+        <a href="contact_us.php"> <img src="icons/Contact.svg" class="navBarIcons"> Contact</a>
     </div>
     <div class="sub_header">
         <h2>View My Appointments</h2>
