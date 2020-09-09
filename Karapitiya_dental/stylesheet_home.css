@@ -4,6 +4,14 @@
     font-size: 25px;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
+.header2{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+h2{
+  text-align: center;
+}
+
 .navbar {
     overflow: hidden;
     background-color: rgb(56, 106, 199);
@@ -11,7 +19,6 @@
     
     text-align: center;
   }
-  
   /* Links inside the navbar */
   .navbar a {
     float: left;
@@ -76,10 +83,24 @@
   }
   .welcome{
       /*padding-left: 1250px;*/
-      text-align:right;
-      color: rgb(53, 63, 206);
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      color: rgb(231, 231, 241);
       padding-inline: 5px;
   }
+
+  .welcome p a{
+    color: white;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    background-color: #647883;
+  }
+
+  .welcome p a:hover{
+    background-color: #7b929e;
+  }
+
   .sub_header{
       color: rgb(21, 69, 131);
       background-color: rgb(98, 182, 238);
@@ -121,6 +142,117 @@
      height: 50px;
    }
 
+   .treatmentsContainer{
+     width: 100%;
+     background-color: rgb(201, 198, 198);
+   }
+
    .treatmentsContainer ul{
+     margin: 0px 0px;
+     padding:  0px 0px ;
+     border-bottom: 0px;
+     width: 100%;
+     display: flex;
      list-style-type: none;
+   }
+
+   .treatmentsContainer ul li{
+    width: 25%;
+    margin: 10px;
+    margin-bottom: 0px;
+   }
+
+   .bts{
+     width: 100%;
+     border: none;
+     border-bottom: 0px;
+     shape-outside: none;
+     box-shadow: none;
+     margin: 0px;
+     padding: 0px;
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 1em;
+     background-color: rgb(128, 128, 128);
+     color: white;
+   }
+
+   .treatmentsContainer ul li .bts:hover{
+     background-color: rgb(97, 97, 97);
+   }
+
+   #bt1{
+     display: none;
+   }
+
+   #bt2{
+    display: none;
+  }
+
+  #bt3{
+    display: none;
+  }
+
+  #bt4{
+    display: none;
+  }
+
+  .details{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.45em;
+    padding: 2px  20px;
+    text-align: justify;
+    background-color: black;
+    color: burlywood;
+    margin: 10px;
+    margin-top: 0px;
+  }
+
+   .bTreatmentImg{
+     width: 100%;
+   }
+
+   @keyframes slider{
+     0%{left: 0;}
+     16%{left: 0;}
+     21%{left: -100%;}
+     37%{left: -100%;}
+     42%{left: -200%;}
+     58%{left: -200%;}
+     63%{left: -300%;}
+     79%{left: -300%;}
+     84%{left: -400%;}
+     100%{left: -400%;}
+   }
+
+   #slider{
+     width: 85%;
+     overflow: hidden;
+     border-top: 0px;
+     margin-top: 0px;
+   }
+
+   #slider figure img{
+     width: 20%;
+     float: left;
+   }
+   
+   #slider figure{
+     position: relative;
+     width: 500%;
+     margin: 0;
+     left: 0;
+     animation: 40s slider infinite;
+     animation-direction: alternate;
+   }
+
+   #logInBox{
+     background-color: #647883;
+   }
+   .homePageContent{
+     display: flex;
+     width: 100%;
+   }
+
+   .content{
+     width: 15%;
    }

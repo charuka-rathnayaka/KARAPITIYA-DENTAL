@@ -16,7 +16,7 @@ if(isset($_SESSION["user_type"])){
 
     <body>
         <div class="header">
-            <h2>DENTAL UNIT - KARAPITIYA TEACHING HOSPITAL</h2>
+            <h2 class="header2">DENTAL UNIT - KARAPITIYA TEACHING HOSPITAL</h2>
             
         </div>
         <div class="navbar">
@@ -55,11 +55,19 @@ if(isset($_SESSION["user_type"])){
            ?> 
            
       
-            
+        <div class="homePageContent">
 
+            <div id="slider">
+                <figure>
+                    <img src="images/img1.jpg" class="sliderImg">
+                    <img src="images/img2.jpg" class="sliderImg">
+                    <img src="images/img3.jpg" class="sliderImg">
+                    <img src="images/img4.jpg" class="sliderImg">
+                    <img src="images/img5.jpg" class="sliderImg">
+                </figure>
+            </div>
 
-
-        <div class="content">
+        <div class="content" id="logInBox">
             <?php if(isset($_SESSION["success"])):?>
                 <div class="success">
                     <h3>
@@ -77,25 +85,21 @@ if(isset($_SESSION["user_type"])){
                    
                 ?>
                 <div class="welcome">
-                    <p>WELCOME <strong> <?php echo $_SESSION['username']; ?></strong>
-                    
-                </p>
-                <p> <a href='index.php?logout='1' ' style="color:red;">Logout</a></p>
+                    <p>WELCOME <strong> <?php echo $_SESSION['username']; ?></strong></p>
+                    <p> <a href='index.php?logout='1' ' > <img src="icons/Logout.svg" class="navBarIcons"> Logout</a></p>
                 </div>
                
                 <?php endif ?>
                 <?php 
                 if(!isset($_SESSION['username'])): ?>
                 <div class="welcome">
-                    
-                <p> <a href='login.php' style="color:blue;">Login</a></p>
+                    <p> <a href='login.php' > <img src="icons/Login.svg" class="navBarIcons"> Login</a></p>
                 </div>
                 <?php endif ?>
                 
             </div>
-            <div class="content1">
-            <p>Welcome to the official webpage of the Dental Unit of Karaptiya Teaching Hospital</p>
-            </div>
+            
+        </div>    
 
     </body>
 </html>
