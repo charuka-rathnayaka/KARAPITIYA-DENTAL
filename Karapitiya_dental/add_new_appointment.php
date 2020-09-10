@@ -1,20 +1,28 @@
 <?php include('config.php');
 
-if (empty($_SESSION['user_type'])) {
+if (empty($_SESSION['username'])) {
     header("location:login.php");
-}
-include('user_type_menu.php'); ?>
+} ?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>Add New Appointment</title>
-    <link rel="stylesheet" type="text/css" href=stylesheet_home.css>
-    <script src="jquery.min.js">
-        function setTime() {
-            document.getElementById("timebtn").style.backgroundcolor = "red";
-        }
-    </script>
+    <link rel="stylesheet" type="text/css" href="stylesheet_view_appointment.css">
+    <script src="jquery.min.js"></script>
+    <script src="blogic.js"></script>
+    <style>
+	.form_error input {
+			border: 1px solid #D83D5A;
+		}
+	.form_error span {
+	  width: 80%;
+	  height: 35px;
+	  margin: 3px 10%;
+	  font-size: 1.1em;
+	  color:#F00;
+	}
+    </style>
     <style>
         .bottom {
             background: white;
@@ -22,7 +30,7 @@ include('user_type_menu.php'); ?>
             width: 500px;
             position: absolute;
             left: 500px;
-            top: 450px;
+            top: 470px;
         }
 
         .aaa {
@@ -31,7 +39,7 @@ include('user_type_menu.php'); ?>
             width: 300px;
             position: absolute;
             left: 650px;
-            top: 605px;
+            top: 625px;
         }
     </style>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -40,6 +48,7 @@ include('user_type_menu.php'); ?>
 	<script>
 	$(function(){
     $("#datepicker").datepicker({
+	dateFormat: 'yy-mm-dd',
 	minDate: 0,
 	maxDate: +7
 		});
@@ -55,40 +64,31 @@ include('user_type_menu.php'); ?>
 
     <div class="navbar">
         <a href="index.php"> <img src="icons/Home.svg" class="navBarIcons"> Home</a>
-        <div id="part1">
-            <div class="dropdown">
-                <button class="dropbtn"> <img src="icons/Treat.svg" class="navBarIcons"> Treatments
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="basic_treatments.php">Basic Treatments</a>
-                    <a href="advance_treatments.php">Advance Treatments</a>
-                </div>
-            </div>
-        </div>
-        <div id="part2">
-            <div class="dropdown">
-                <button class="dropbtn"> <img src="icons/Appoint.svg" class="navBarIcons"> Appointments
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="add_new_appointment.php">Make new Appointment</a>
-                    <a href="view_my_appointment.php">View My Appointments</a> </div>
-            </div>
-        </div>
-        <div id="part3">
-            <a href="my_profile.php"> <img src="icons/Profile.svg" class="navBarIcons"> My Profile</a>
-        </div>
-        <div id="part4">
-            <a href="about_us.php"> <img src="icons/About.svg" class="navBarIcons"> About</a>
-            <a href="contact_us.php"> <img src="icons/Contact.svg" class="navBarIcons"> Contact</a>
-        </div>
-    </div>
 
-    <?php include('user_type_menu.php');
-    ?>
+        <div class="dropdown">
+            <button class="dropbtn"> <img src="icons/Treat.svg" class="navBarIcons"> Treatments
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="basic_treatments.php">Basic Treatments</a>
+                <a href="advance_treatments.php">Advance Treatments</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn"> <img src="icons/Appoint.svg" class="navBarIcons"> Appointments
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="add_new_appointment.php">Make new Appointment</a>
+                <a href="view_my_appointment.php">View My Appointments</a>
+            </div>
+        </div>
+        <a href="my_profile.php"> <img src="icons/Profile.svg" class="navBarIcons"> My Profile</a>
+        <a href="about_us.php"> <img src="icons/About.svg" class="navBarIcons"> About</a>
+        <a href="contact_us.php"> <img src="icons/Contact.svg" class="navBarIcons"> Contact</a>
+    </div>
     <div class="sub_header">
-        <h2>ADD APPOINTMENT</h2>
+        <h2>View My Appointments</h2>
     </div>
     <div class="content">
         <?php if (isset($_SESSION["success"])) : ?>
@@ -120,23 +120,28 @@ include('user_type_menu.php'); ?>
             </div>
         <?php endif ?>
     </div>
+    
     <form action="" method="post">
         <table align="center" cellpadding="5" cellspacing="10">
             <tr>
-                <td>Patient Name<input type="text" name="id" id="id1" value="" /></td>
+                <td>Patient Name</td><td>
+                <div <?php if (isset($formerror)): ?> class="form_error" <?php endif ?> >
+                <input type="text" name="id" id="id1" value="" />
+                </div></td>
             </tr>
             <tr>
-                <td>Category<select name="choice" id="select1">
+                <td>Category</td><td><select name="choice" id="select1">
                         <option value="NurveFilling">Nurve Filling</option>
                         <option value="Implants">Implants</option>
                         <option value="Orthodontics">Orthodontics</option>
                     </select></td>
             </tr>
             <tr>
-                <td>Date:<input type="text" id="datepicker"></td>
+                <td>Date:</td><td><input type="text" id="datepicker"></td>
+                <td><p id="dd"></p></td>
             </tr>
             <tr>
-                <td><input type="button" name="check" id="check1" value="Check" /></td>
+                <td><input type="button" name="check" id="check1" value="Check" onClick="send()" /></td>
             </tr>
         </table>
         <div class="bottom"></div>
@@ -150,13 +155,15 @@ include('user_type_menu.php'); ?>
                 var ischeck = $(this).val();
                 var choice = $('#select1').val();
                 var date = $('#datepicker').val();
-                $.ajax({
+				var name = $('#id1').val();
+				$.ajax({
                     url: "check.php",
                     method: "POST",
                     data: {
                         check: ischeck,
                         choice: choice,
-                        date: date
+                        date: date,
+						name: name
                     },
                     success: function(data) {
                         $('.bottom').html(data);
@@ -164,7 +171,6 @@ include('user_type_menu.php'); ?>
                 });
             });
 		});
-
 </script>
 </body>
 
