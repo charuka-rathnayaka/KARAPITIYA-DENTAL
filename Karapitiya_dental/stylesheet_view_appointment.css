@@ -127,6 +127,35 @@
   color: darkslateblue;
 }
 
-.navBarIcons{
+.navBarIcons {
   height: 30px;
+}
+.form_error input {
+  border: 1px solid #d83d5a;
+}
+
+.form_error span {
+  width: 80%;
+  height: 35px;
+  margin: 3px 10%;
+  font-size: 1.1em;
+  color: #f00;
+}
+
+.bottom {
+  background: white;
+  height: 150px;
+  width: 500px;
+  position: absolute;
+  left: 500px;
+  top: 470px;
+}
+
+.aaa {
+  background: white;
+  height: 100px;
+  width: 300px;
+  position: absolute;
+  left: 650px;
+  top: 625px;
 }

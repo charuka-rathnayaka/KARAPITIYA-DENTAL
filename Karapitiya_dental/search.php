@@ -1,9 +1,11 @@
  <?php
-    $connect = mysqli_connect("localhost", "root", "", "dentalkarapitiya");
+    include_once('database_server.php');
+    $database = new Db_Connection();
+    $db = $database->connect();
     if (isset($_POST["query"])) {
         $output = '';
         $query = "SELECT * FROM patient_accounts WHERE Username LIKE '%" . $_POST["query"] . "%' OR  Firstname LIKE '%" . $_POST["query"] . "%' OR  Lastname LIKE '%" . $_POST["query"] . "%'";
-        $result = mysqli_query($connect, $query);
+        $result = mysqli_query($db, $query);
         $output = '<ul class="list-unstyled">';
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_array($result)) {

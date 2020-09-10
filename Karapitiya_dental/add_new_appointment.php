@@ -11,49 +11,19 @@ if (empty($_SESSION['username'])) {
     <link rel="stylesheet" type="text/css" href="stylesheet_view_appointment.css">
     <script src="jquery.min.js"></script>
     <script src="blogic.js"></script>
-    <style>
-	.form_error input {
-			border: 1px solid #D83D5A;
-		}
-	.form_error span {
-	  width: 80%;
-	  height: 35px;
-	  margin: 3px 10%;
-	  font-size: 1.1em;
-	  color:#F00;
-	}
-    </style>
-    <style>
-        .bottom {
-            background: white;
-            height: 150px;
-            width: 500px;
-            position: absolute;
-            left: 500px;
-            top: 470px;
-        }
 
-        .aaa {
-            background: white;
-            height: 100px;
-            width: 300px;
-            position: absolute;
-            left: 650px;
-            top: 625px;
-        }
-    </style>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script>
-	$(function(){
-    $("#datepicker").datepicker({
-	dateFormat: 'yy-mm-dd',
-	minDate: 0,
-	maxDate: +7
-		});
-	});
-	</script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $("#datepicker").datepicker({
+                dateFormat: 'yy-mm-dd',
+                minDate: 0,
+                maxDate: +7
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -64,31 +34,34 @@ if (empty($_SESSION['username'])) {
 
     <div class="navbar">
         <a href="index.php"> <img src="icons/Home.svg" class="navBarIcons"> Home</a>
-
-        <div class="dropdown">
-            <button class="dropbtn"> <img src="icons/Treat.svg" class="navBarIcons"> Treatments
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="basic_treatments.php">Basic Treatments</a>
-                <a href="advance_treatments.php">Advance Treatments</a>
+        <div id="part1">
+            <div class="dropdown">
+                <button class="dropbtn"> <img src="icons/Treat.svg" class="navBarIcons"> Treatments
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="basic_treatments.php">Basic Treatments</a>
+                    <a href="advance_treatments.php">Advance Treatments</a>
+                </div>
             </div>
         </div>
-        <div class="dropdown">
-            <button class="dropbtn"> <img src="icons/Appoint.svg" class="navBarIcons"> Appointments
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="add_new_appointment.php">Make new Appointment</a>
-                <a href="view_my_appointment.php">View My Appointments</a>
+        <div id="part2">
+            <div class="dropdown">
+                <button class="dropbtn"> <img src="icons/Appoint.svg" class="navBarIcons"> Appointments
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="add_new_appointment.php">Make new Appointment</a>
+                    <a href="view_my_appointment.php">View My Appointments</a> </div>
             </div>
         </div>
-        <a href="my_profile.php"> <img src="icons/Profile.svg" class="navBarIcons"> My Profile</a>
-        <a href="about_us.php"> <img src="icons/About.svg" class="navBarIcons"> About</a>
-        <a href="contact_us.php"> <img src="icons/Contact.svg" class="navBarIcons"> Contact</a>
-    </div>
-    <div class="sub_header">
-        <h2>View My Appointments</h2>
+        <div id="part3">
+            <a href="my_profile.php"> <img src="icons/Profile.svg" class="navBarIcons"> My Profile</a>
+        </div>
+        <div id="part4">
+            <a href="about_us.php"> <img src="icons/About.svg" class="navBarIcons"> About</a>
+            <a href="contact_us.php"> <img src="icons/Contact.svg" class="navBarIcons"> Contact</a>
+        </div>
     </div>
     <div class="content">
         <?php if (isset($_SESSION["success"])) : ?>
@@ -102,6 +75,7 @@ if (empty($_SESSION['username'])) {
             </div>
         <?php endif ?>
         <?php
+        include('user_type_menu.php');
         if (isset($_SESSION['username'])) :
         ?>
             <div class="welcome">
@@ -119,26 +93,43 @@ if (empty($_SESSION['username'])) {
                 <p> <a href=' login.php' style="color:blue;">Login</a></p>
             </div>
         <?php endif ?>
+
     </div>
-    
+
+
     <form action="" method="post">
         <table align="center" cellpadding="5" cellspacing="10">
             <tr>
-                <td>Patient Name</td><td>
-                <div <?php if (isset($formerror)): ?> class="form_error" <?php endif ?> >
-                <input type="text" name="id" id="id1" value="" />
-                </div></td>
+                <td>Patient Name</td>
+                <td>
+                    <div <?php if (isset($formerror)) : ?> class="form_error" <?php endif ?>>
+                        <input type="text" name="id" id="id1" value="" />
+                    </div>
+                </td>
             </tr>
             <tr>
-                <td>Category</td><td><select name="choice" id="select1">
-                        <option value="NurveFilling">Nurve Filling</option>
-                        <option value="Implants">Implants</option>
+                <td>Category</td>
+                <td><select name="choice" id="select1">
+                        <option value="Orthodontics">Bridges</option>
+                        <option value="Orthodontics">Crowns</option>
+                        <option value="Orthodontics">Dental Implants</option>
                         <option value="Orthodontics">Orthodontics</option>
+                        <option value="NurveFilling">Root canal treatment</option>
+                        <option value="Implants">Scale and polish</option>
+                        <option value="Orthodontics">Teeth whitening</option>
+                        <option value="Orthodontics">Tooth removal</option>
+
+
+
+
                     </select></td>
             </tr>
             <tr>
-                <td>Date:</td><td><input type="text" id="datepicker"></td>
-                <td><p id="dd"></p></td>
+                <td>Date:</td>
+                <td><input type="text" id="datepicker"></td>
+                <td>
+                    <p id="dd"></p>
+                </td>
             </tr>
             <tr>
                 <td><input type="button" name="check" id="check1" value="Check" onClick="send()" /></td>
@@ -149,29 +140,7 @@ if (empty($_SESSION['username'])) {
         <div class="bbb"></div>
     </form>
     </div>
-    <script>
-        $(document).ready(function() {
-            $('input[id="check1"]').click(function() {
-                var ischeck = $(this).val();
-                var choice = $('#select1').val();
-                var date = $('#datepicker').val();
-				var name = $('#id1').val();
-				$.ajax({
-                    url: "check.php",
-                    method: "POST",
-                    data: {
-                        check: ischeck,
-                        choice: choice,
-                        date: date,
-						name: name
-                    },
-                    success: function(data) {
-                        $('.bottom').html(data);
-                    }
-                });
-            });
-		});
-</script>
+
 </body>
 
 </html>

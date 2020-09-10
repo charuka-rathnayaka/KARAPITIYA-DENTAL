@@ -42,16 +42,9 @@ if (isset($_SESSION["user_type"])) {
         var element = x[0]; 
         element.removeChild(elmnt)
         </script>';
-
       echo '<script>
-       var elmnt = document.getElementById("part3");
-       var link = document.createElement("a");
-       var node = document.createTextNode("Add Doctor");
-       link.appendChild(node);
-       link.href="add_doctor.php"
-       var x=document.getElementsByClassName("navbar");
-       var element = x[0];  
-        element.replaceChild(link,elmnt);
+       var elmnt = document.getElementById("part2");
+       elmnt.innerHTML="hi";
        </script>';
    }
    if ($user_type == "Staff") {
