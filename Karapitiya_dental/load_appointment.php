@@ -1,8 +1,11 @@
 <?php
-$database = mysqli_connect('localhost', 'root', '', 'dentalkarapitiya');
+include_once('database_server.php');
+$database = new Db_Connection();
+$db = $database->connect();
+
 $date = date("d-m-Y");
 $ss = "SELECT * FROM todayappointment WHERE `date`='$date'";
-$re = mysqli_query($database, $ss);
+$re = mysqli_query($db, $ss);
 $data = array();
 
 if (mysqli_num_rows($re) > 0) {

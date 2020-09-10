@@ -1,11 +1,14 @@
 <?php
-$database = mysqli_connect('localhost', 'root', '', 'dentalkarapitiya');
+include_once('database_server.php');
+$database = new Db_Connection();
+$db = $database->connect();
 
 $date = date("d-m-Y");
 $username = $_POST["postusername"];
 
-$ss = "SELECT * FROM todayappointment WHERE `date`='$date' AND `username` = '$username' ";
-$re = mysqli_query($database, $ss);
+
+$ss = "SELECT * FROM todayappointment WHERE `date`='$date' AND `username` = '$username'";
+$re = mysqli_query($db, $ss);
 
 if (mysqli_num_rows($re) > 0) {
     while ($row = mysqli_fetch_assoc($re)) {
