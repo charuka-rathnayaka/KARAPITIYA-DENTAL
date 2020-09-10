@@ -1,4 +1,5 @@
 <?php include('config.php');
+require_once('dataLayer.php');
 
 if (empty($_SESSION['username'])) {
     header("location:login.php");
@@ -91,13 +92,12 @@ if (empty($_SESSION['username'])) {
                 </tr>
             </thead>
             <?php
-            $database = mysqli_connect('localhost', 'root', '', 'dentalkarapitiya');
             $name = $_SESSION['username'];
-            $sql = "SELECT * FROM booking WHERE `username`='$name'";
-            $results = mysqli_query($database, $sql);
+            $obj = DataLayer::getInstance();
+			$results= $obj->select_view($name);
             if (mysqli_num_rows($results) > 0) {
                 while ($rows = mysqli_fetch_assoc($results)) {
-                    echo "<tr><td>" . $rows["username"] . "</td><td>" . $rows["patient_name"] . "</td><td>" . $rows["date"] . "</td><td>" . $rows["Appointmentnumber"] . "</td><td>" . $rows["category"] . "</td><td><input type='button' id='btn' value='delete' name='delete' onClick='selectedRowInput()'>" . "</td></tr>";
+                    echo "<tr><td>" . $rows["username"] . "</td><td>" .$rows["patient_name"] . "</td><td>" . $rows["date"] . "</td><td>" . $rows["Appointmentnumber"] . "</td><td>" . $rows["category"] . "</td><td><input type='button' id='btn' value='delete' name='delete' onClick='selectedRowInput()'>" . "</td></tr>";
                 }
             }
             ?>
@@ -114,14 +114,18 @@ if (empty($_SESSION['username'])) {
                 var rIndex, table = document.getElementById("tbl");
                 for (var i = 0; i < table.rows.length; i++) {
                     table.rows[i].onclick = function() {
-                        var date = this.cells[0].innerHTML;
-                        var app_num = this.cells[1].innerHTML;
-                        var treatment = this.cells[2].innerHTML;
-                        var btnval = this.cells[3].innerHTML;
+                        var user = this.cells[0].innerHTML;
+                        var name = this.cells[1].innerHTML;
+                        var date = this.cells[2].innerHTML;
+                        var app_num = this.cells[3].innerHTML;
+						var treatment = this.cells[4].innerHTML;
+						var btnval = this.cells[5].innerHTML;
                         $.ajax({
                             url: "delete.php",
                             method: "POST",
                             data: {
+								user:user,
+								name:name,
                                 date: date,
                                 app_num: app_num,
                                 treatment: treatment,
