@@ -4,7 +4,11 @@
 }
 body{
     font-size:120%;
-    background: #F8F8FF;
+    background-image: url("Images/background/form_back2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 
 }
 .header{
@@ -23,7 +27,7 @@ form {
     margin: 0px auto;
     padding: 20px;
     border: 1px solid #B0C4DE;
-    background: white;
+    background:rgb(167, 242, 245);
     border-radius: 0px 0px 10px 10px;
 }
 .input-group{
@@ -43,6 +47,7 @@ form {
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid gray;
+    background:rgb(213, 247, 246);
 }
 .btn{
     padding: 10px;
