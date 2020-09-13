@@ -1,6 +1,15 @@
 h2{
     text-align: center;
 }
+body{
+  font-size:120%;
+  background-image: url("Images/background/history_back.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+background-position: center;
+background-size: cover;
+
+}
 table {
     border-collapse: collapse;
     width: 100%;
