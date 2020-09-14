@@ -1,0 +1,225 @@
+.header{
+  background:rgb(144, 211, 223);
+  color: rgb(13, 64, 139);
+  font-size: 25px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  width: 85%;
+}
+.header2{
+margin-top: 0px;
+margin-bottom: 0px;
+}
+h2{
+text-align: center;
+}
+.mainLogo{
+height: 80px;
+margin-top: 10px;
+margin-left: 10px;
+}
+
+.topHead{
+display: flex;
+width: 100%;
+}
+
+#logInBox{
+background:rgb(144, 211, 223);
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: rgb(56, 106, 199);
+  font-family: Arial;
+  
+  text-align: center;
+}
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 50px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: rgb(61, 46, 201);
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #72c1e0;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: rgb(90, 32, 165);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.welcome{
+    /*padding-left: 1250px;*/
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+    padding-inline: 5px;
+}
+
+
+
+.welcome div a{
+  color: rgb(0, 0, 0);
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.log a:hover{
+  background-color: rgb(159, 222, 233);
+}
+
+.sub_header{
+    color: rgb(21, 69, 131);
+    background-color: rgb(98, 182, 238);
+    font-size: 16px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.container1{
+  color: rgb(13, 70, 156);
+  font: size 20;;
+}
+ .phoneIcon{
+   height: 150px;
+ }
+
+ .emailIcon{
+   height: 150px;
+ }
+
+ .addressIcon{
+   height : 150px;
+ }
+ 
+ .contactMethods{
+   display: flex;
+   list-style-type: none;
+ }
+
+ .contactMethods li{
+   margin: 2em;
+   text-align: center ;
+ }
+
+ .navBarIcons{
+   height: 30px;
+ }
+
+ .treatmentIcon{
+   height: 50px;
+ }
+/*--------------------------------------*/
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    font-size:100%;
+    background: #F8F8FF;
+
+}
+.topic{
+    width: 80%;
+    margin: 50px auto 0px;
+    color: white;
+    background: #5F9EA0;
+    text-align: center;
+    border:1px solid #B0C4DE;
+    border-bottom: none;
+    border-radius: 10px 10px 0px 0px;
+    padding: 10px;
+}
+.content1{
+  width: 15%;
+}
+.content{
+    color: none;
+    color: black;
+    
+    font-size:130%;
+    width: 30%;
+    margin: 0px auto;
+    padding: 25px;
+    border: 1px solid #B0C4DE;
+    background: white;
+    border-radius: 20px 0px 10px 10px;
+}
+.input-data label{
+    margin: 10px 0px 10px 0px;
+    height: 30px;
+    width: 93%;
+    padding: 5px 10px;
+    font-size: 20px;
+}
+
+.navBarIcons{
+  height: 30px;
+}
+
+/*
+.input-data label {
+    display: block;
+    text-align: left;
+    margin: 3px;
+}
+.input-data label{
+    height: 30px;
+    width: 93%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}*/
