@@ -100,10 +100,6 @@ if (empty($_SESSION['username'])) {
             
            <?php include('user_type_menu.php');
            ?> 
-    <div class="sub_header">
-        <h2>View My Appointments</h2>
-    </div>
-
     <div>
         <h1 class="head">My Appointments</h1>
         <table class="tbl" id="tbl">
