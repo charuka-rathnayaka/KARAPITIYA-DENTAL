@@ -21,4 +21,4 @@ mysqli_query($db, $sql_query71);
 $sql2 = "DELETE FROM todayappointment WHERE `username`='$username' AND `date`='$date' AND `Appointmentnumber`='$appointmentnumber'";
 mysqli_query($db, $sql2);
 
-/*header('Location:today_appointments.php');*/
+//header('Location:today_appointments.php');

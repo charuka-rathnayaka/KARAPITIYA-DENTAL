@@ -3,6 +3,7 @@
     color: rgb(13, 64, 139);
     font-size: 25px;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
+    width: 85%;
 }
 .header2{
   margin-top: 0px;
@@ -11,6 +12,20 @@
 h2{
   text-align: center;
 }
+.mainLogo{
+  height: 80px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.topHead{
+  display: flex;
+  width: 100%;
+}
+
+#logInBox{
+  background:rgb(144, 211, 223);
+ }
 
 .navbar {
     overflow: hidden;
@@ -85,20 +100,24 @@ h2{
       /*padding-left: 1250px;*/
       text-align: center;
       font-family: Arial, Helvetica, sans-serif;
-      color: rgb(231, 231, 241);
+      color: rgb(0, 0, 0);
       padding-inline: 5px;
   }
 
-  .welcome p a{
-    color: white;
+
+
+  .welcome div a{
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     display: block;
     width: 100%;
-    background-color: #647883;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 
-  .welcome p a:hover{
-    background-color: #7b929e;
+  .log a:hover{
+    background-color: rgb(159, 222, 233);
   }
 
   .sub_header{
@@ -245,9 +264,7 @@ h2{
      animation-direction: alternate;
    }
 
-   #logInBox{
-     background-color: #647883;
-   }
+   
    .homePageContent{
      display: flex;
      width: 100%;

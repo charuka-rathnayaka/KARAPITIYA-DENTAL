@@ -26,7 +26,7 @@ if (empty($_SESSION['username'])) {
         </thead>
         <tbody>
             <?php
-            call_table();
+            calltable();
             ?>
         </tbody>
     </table>

@@ -1,7 +1,8 @@
 <?php
 include("database_server.php");
 
-function call_table()
+
+function calltable()
 {
     $db_connect = new Db_Connection();
     $connect = $db_connect->connect();
@@ -26,5 +27,6 @@ function call_table()
         $row = mysqli_fetch_assoc($results);
     }
 }
+
 
 ?>
