@@ -1,6 +1,6 @@
 <?php include('config.php');
 include_once('memento.php');
-include('waitingListUpdate.php');
+include_once('waitingListUpdate.php');
 if (empty($_SESSION['username'])) {
     header("location:login.php");
 } ?>
