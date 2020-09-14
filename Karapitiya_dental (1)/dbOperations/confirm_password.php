@@ -4,7 +4,7 @@
 <html>
     <head>
         <title> Paasword Confirmation </title>
-        <link rel="stylesheet" type="text/css" href="stylesheet_form.css">
+        <link rel="stylesheet" type="text/css" href="../../Karapitiya_dental/css/stylesheet_form.css">
     </head>
     <body>
         <div class="header">
