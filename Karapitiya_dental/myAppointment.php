@@ -9,7 +9,6 @@ if (mysqli_num_rows($results) > 0) {
 }
 ?>
 </table>
-<div class="bottom"></div>
 <script src="jquery.min.js"></script>
 <script>
     $('input[type="button"]').click(function() {

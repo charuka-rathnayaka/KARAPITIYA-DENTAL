@@ -4,47 +4,71 @@ if (isset($_SESSION["user_type"])) {
    $user_type = $_SESSION["user_type"];
    if ($user_type == "Doctor") {
       echo '<script> 
-      document.getElementById("part2").style.display="none";
-      document.getElementById("adminPerspective").style.display="none";
-      document.getElementById("doctorPerspective").style.display="block";
-      document.getElementById("staffPerspective").style.display="none";
-      document.getElementById("part3").style.display="none";
-      </script>';
-   }
-   else if ($user_type == "Admin") {
+       var link = document.createElement("a");
+       var node = document.createTextNode("Blog");
+       link.appendChild(node);
+       link.href="personal_blog.php"
+       var x=document.getElementsByClassName("navbar");
+       var element = x[0];      
+       var elmnt = document.getElementById("part4");
+       element.insertBefore(link,elmnt);</script>';
+
       echo '<script>
-        document.getElementById("part2").style.display="none";
-        document.getElementById("adminPerspective").style.display="block";
-        document.getElementById("doctorPerspective").style.display="none";
-        document.getElementById("staffPerspective").style.display="none";
-        document.getElementById("part3").style.display="none";
+       var elmnt = document.getElementById("part2");
+       var link = document.createElement("a");
+       var node = document.createTextNode("View appointments");
+       link.appendChild(node);
+       link.href="today_appointments.php"
+       var x=document.getElementsByClassName("navbar");
+       var element = x[0];  
+        element.replaceChild(link,elmnt);
+       </script>';
+
+      echo '<script>
+       var elmnt = document.getElementById("part3");
+       var link = document.createElement("a");
+       var node = document.createTextNode("My Profile");
+       link.appendChild(node);
+       link.href="profile_doctor.php"
+       var x=document.getElementsByClassName("navbar");
+       var element = x[0];  
+        element.replaceChild(link,elmnt);
+       </script>';
+   }
+   if ($user_type == "Admin") {
+      echo '<script>
+        var elmnt = document.getElementById("part2");
+        var x=document.getElementsByClassName("navbar");
+        var element = x[0]; 
+        element.removeChild(elmnt)
         </script>';
-   }
-   else if ($user_type == "Staff") {
       echo '<script>
-      document.getElementById("part2").style.display="none";
-      document.getElementById("adminPerspective").style.display="none";
-      document.getElementById("doctorPerspective").style.display="none";
-      document.getElementById("staffPerspective").style.display="block";
-      document.getElementById("part3").style.display="none";
+       var elmnt = document.getElementById("part2");
+       elmnt.innerHTML="hi";
        </script>';
    }
-   else{
+   if ($user_type == "Staff") {
       echo '<script>
-      document.getElementById("part2").style.display="block";
-      document.getElementById("adminPerspective").style.display="none";
-      document.getElementById("doctorPerspective").style.display="none";
-      document.getElementById("staffPerspective").style.display="none";
-      document.getElementById("part3").style.display="block";
+       var elmnt = document.getElementById("part2");
+       var link = document.createElement("a");
+       var node = document.createTextNode("Add appointments");
+       link.appendChild(node);
+       link.href="add_new_appointment.php"
+       var x=document.getElementsByClassName("navbar");
+       var element = x[0];  
+        element.replaceChild(link,elmnt);
+       </script>';
+
+
+      echo '<script>
+       var elmnt = document.getElementById("part3");
+       var link = document.createElement("a");
+       var node = document.createTextNode("View Appointments");
+       link.appendChild(node);
+       link.href="viewAppointment.php"
+       var x=document.getElementsByClassName("navbar");
+       var element = x[0];  
+        element.replaceChild(link,elmnt);
        </script>';
    }
-}
-else{
-   echo '<script>
-   document.getElementById("part2").style.display="block";
-   document.getElementById("adminPerspective").style.display="none";
-   document.getElementById("doctorPerspective").style.display="none";
-   document.getElementById("staffPerspective").style.display="none";
-   document.getElementById("part3").style.display="block";
-    </script>';
 }
