@@ -1,0 +1,275 @@
+.header{
+    background:rgb(144, 211, 223);
+    color: rgb(13, 64, 139);
+    font-size: 25px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    width: 85%;
+}
+.header2{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+h2{
+  text-align: center;
+}
+.mainLogo{
+  height: 80px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.topHead{
+  display: flex;
+  width: 100%;
+}
+
+#logInBox{
+  background:rgb(144, 211, 223);
+ }
+
+.navbar {
+    overflow: hidden;
+    background-color: rgb(56, 106, 199);
+    font-family: Arial;
+    
+    text-align: center;
+  }
+  /* Links inside the navbar */
+  .navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 50px;
+    text-decoration: none;
+  }
+  
+  /* The dropdown container */
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  /* Dropdown button */
+  .dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+  }
+  
+  /* Add a red background color to navbar links on hover */
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: rgb(61, 46, 201);
+  }
+  
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #72c1e0;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  /* Add a grey background color to dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: rgb(90, 32, 165);
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .welcome{
+      /*padding-left: 1250px;*/
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      color: rgb(0, 0, 0);
+      padding-inline: 5px;
+  }
+
+
+
+  .welcome div a{
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .log a:hover{
+    background-color: rgb(159, 222, 233);
+  }
+
+  .sub_header{
+      color: rgb(21, 69, 131);
+      background-color: rgb(98, 182, 238);
+      font-size: 16px;
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
+  }
+  
+  .container1{
+    color: rgb(13, 70, 156);
+    font: size 20;;
+  }
+   .phoneIcon{
+     height: 150px;
+   }
+
+   .emailIcon{
+     height: 150px;
+   }
+
+   .addressIcon{
+     height : 150px;
+   }
+   
+   .contactMethods{
+     display: flex;
+     list-style-type: none;
+   }
+
+   .contactMethods li{
+     margin: 2em;
+     text-align: center ;
+   }
+
+   .navBarIcons{
+     height: 30px;
+   }
+
+   .treatmentIcon{
+     height: 50px;
+   }
+
+   .treatmentsContainer{
+     width: 100%;
+     background-color: rgb(201, 198, 198);
+   }
+
+   .treatmentsContainer ul{
+     margin: 0px 0px;
+     padding:  0px 0px ;
+     border-bottom: 0px;
+     width: 100%;
+     display: flex;
+     list-style-type: none;
+   }
+
+   .treatmentsContainer ul li{
+    width: 25%;
+    margin: 10px;
+    margin-bottom: 0px;
+   }
+
+   .bts{
+     width: 100%;
+     border: none;
+     border-bottom: 0px;
+     shape-outside: none;
+     box-shadow: none;
+     margin: 0px;
+     padding: 0px;
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 1em;
+     background-color: rgb(128, 128, 128);
+     color: white;
+   }
+
+   .treatmentsContainer ul li .bts:hover{
+     background-color: rgb(97, 97, 97);
+   }
+
+   #bt1{
+     display: none;
+   }
+
+   #bt2{
+    display: none;
+  }
+
+  #bt3{
+    display: none;
+  }
+
+  #bt4{
+    display: none;
+  }
+
+  .details{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.45em;
+    padding: 2px  20px;
+    text-align: justify;
+    background-color: black;
+    color: burlywood;
+    margin: 10px;
+    margin-top: 0px;
+  }
+
+   .bTreatmentImg{
+     width: 100%;
+   }
+
+   @keyframes slider{
+     0%{left: 0;}
+     16%{left: 0;}
+     21%{left: -100%;}
+     37%{left: -100%;}
+     42%{left: -200%;}
+     58%{left: -200%;}
+     63%{left: -300%;}
+     79%{left: -300%;}
+     84%{left: -400%;}
+     100%{left: -400%;}
+   }
+
+   #slider{
+     width: 85%;
+     overflow: hidden;
+     border-top: 0px;
+     margin-top: 0px;
+   }
+
+   #slider figure img{
+     width: 20%;
+     float: left;
+   }
+   
+   #slider figure{
+     position: relative;
+     width: 500%;
+     margin: 0;
+     left: 0;
+     animation: 40s slider infinite;
+     animation-direction: alternate;
+   }
+
+   
+   .homePageContent{
+     display: flex;
+     width: 100%;
+   }
+
+   .content{
+     width: 15%;
+   }
