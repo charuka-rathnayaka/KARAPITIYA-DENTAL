@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 431.9 408.4" style="enable-background:new 0 0 431.9 408.4;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;fill:#54C9F0;stroke:#3BC0F0;stroke-miterlimit:10;}
+	.st1{fill:#FFFFFF;}
+</style>
+<rect class="st0" width="431.9" height="408.4"/>
+<title>Appointments</title>
+<path class="st1" d="M408.7,36.6h-19v31.4c0,11.8-9.6,21.4-21.4,21.4h-16c-11.8,0-21.4-9.6-21.4-21.4c0,0,0,0,0,0V36.6H107v31.4
+	c0,11.8-9.6,21.4-21.4,21.4c0,0,0,0,0,0h-16c-11.8,0-21.4-9.6-21.4-21.4V36.6h-25C10.4,36.6,0,46.9,0,59.7c0,0,0,0,0,0v325.5
+	c0,12.8,10.4,23.2,23.2,23.2c0,0,0,0,0,0h385.6c12.8,0,23.2-10.4,23.2-23.2l0,0V59.8C431.9,47,421.5,36.6,408.7,36.6z M416.6,380.9
+	c0,8.3-6.7,15-15,15H29.2c-8.3,0-15-6.7-15-15V128h402.5V380.9z"/>
+<rect x="188.4" y="169.7" class="st1" width="61" height="61"/>
+<rect x="328.7" y="169.7" class="st1" width="61" height="61"/>
+<rect x="188.4" y="283" class="st1" width="61" height="61"/>
+<rect x="328.7" y="283" class="st1" width="61" height="61"/>
+<path class="st1" d="M77.2,0H78c11.6,0,21,9.4,21,21v31.2c0,11.6-9.4,21-21,21h-0.9c-11.6,0-21-9.4-21-21V21C56.2,9.4,65.6,0,77.2,0
+	z"/>
+<path class="st1" d="M359.8,0h0.9c11.6,0,21,9.4,21,21v31.2c0,11.6-9.4,21-21,21h-0.9c-11.6,0-21-9.4-21-21V21
+	C338.8,9.4,348.2,0,359.8,0z"/>
+<polygon class="st1" points="164.2,240.2 120.8,240.2 120.8,196.8 77.3,196.8 77.3,240.2 33.9,240.2 33.9,283.6 77.3,283.6 
+	77.3,327.1 120.8,327.1 120.8,283.6 164.2,283.6 "/>
+</svg>

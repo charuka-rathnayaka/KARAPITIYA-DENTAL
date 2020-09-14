@@ -1,1 +1,22 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460.08 342.44"><defs><style>.cls-1{fill:#e0bb5e;}.cls-1,.cls-2,.cls-3{stroke:#231f20;stroke-miterlimit:10;stroke-width:4px;}.cls-2{fill:#e2af3b;}.cls-3{fill:#d2d0cf;}.cls-4{font-size:227.32px;fill:#231f20;font-family:MyriadPro-Regular, Myriad Pro;}</style></defs><title>Email</title><rect class="cls-1" x="2" y="93.36" width="433.5" height="247.08" rx="13.69" ry="13.69"/><path class="cls-2" d="M449.71,128.68H43.59a13.67,13.67,0,0,0-13.41,11l108.1,65.67,95.95,58.29a23.9,23.9,0,0,0,24.84,0L355,205.31l108.11-65.67A13.69,13.69,0,0,0,449.71,128.68Z" transform="translate(-27.9 -35.32)"/><rect class="cls-3" x="219.11" y="97.36" width="326.92" height="206.83" rx="15.93" ry="15.93" transform="translate(555.44 -217.11) rotate(90)"/><text class="cls-4" transform="translate(271.66 231.76)">@</text></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 450 550" style="enable-background:new 0 0 450 550;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;fill:#8FD7EF;}
+	.st1{fill:#E0BB5D;stroke:#231F20;stroke-width:4;stroke-miterlimit:10;}
+	.st2{fill:#E2B03A;stroke:#231F20;stroke-width:4;stroke-miterlimit:10;}
+	.st3{fill:#D3D1D0;stroke:#231F20;stroke-width:4;stroke-miterlimit:10;}
+	.st4{fill:#231F20;}
+	.st5{font-family:'ArialMT';}
+	.st6{font-size:190.785px;}
+</style>
+<rect class="st0" width="450" height="550"/>
+<path class="st1" d="M36.1,524.8V42.2c0-9,7.3-16.3,16.3-16.3h261.1c9,0,16.3,7.3,16.3,16.3v482.6c0,9-7.3,16.3-16.3,16.3H52.3
+	C43.4,541,36.1,533.8,36.1,524.8z"/>
+<path class="st2" d="M36.1,42.2v482.6c0,7.7,5.5,14.4,13.1,15.9l78-128.4l69.3-114c5.5-9.1,5.5-20.4,0-29.5l-69.3-114l-78-128.5
+	C41.5,27.8,36.1,34.5,36.1,42.2z"/>
+<path class="st3" d="M428.1,34v407c0,12.1-8,22-17.8,22H214.5c-9.8,0-17.8-9.8-17.8-22V34c0-12.1,8-22,17.8-22h195.8
+	C420.1,12,428.1,21.8,428.1,34z"/>
+<text transform="matrix(1 0 0 1 211.3544 283.4853)" class="st4 st5 st6">@</text>
+</svg>
