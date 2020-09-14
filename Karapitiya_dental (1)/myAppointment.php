@@ -4,7 +4,7 @@ $obj = DataLayer::getInstance();
 $results = $obj->select_view($name);
 if (mysqli_num_rows($results) > 0) {
     while ($rows = mysqli_fetch_assoc($results)) {
-        echo "<tr><td>" . $rows["username"] . "</td><td>" . $rows["patient_name"] . "</td><td>" . $rows["date"] . "</td><td>" . $rows["Appointmentnumber"] . "</td><td>" . $rows["category"] . "</td><td><input type='button' id='btn' value='delete' name='delete' onClick='selectedRowInput()'>" . "</td></tr>";
+        echo "<tr><td>" . $rows["username"] . "</td><td>" . $rows["patient_name"] . "</td><td>" . $rows["date"] . "</td><td>" . $rows["Appointmentnumber"] . "</td><td>" . $rows["category"] . "</td><td><input type='button' id='btn' value='Delete' name='delete' onClick='selectedRowInput()'>" . "</td></tr>";
     }
 }
 ?>
