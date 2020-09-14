@@ -3,6 +3,7 @@
   color: rgb(13, 64, 139);
   font-size: 25px;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
+  width: 85%;
 }
 .navbar {
   overflow: hidden;
@@ -20,6 +21,11 @@
   text-align: center;
   padding: 14px 50px;
   text-decoration: none;
+}
+
+.topHead {
+  display: flex;
+  width: 100%;
 }
 
 /* The dropdown container */

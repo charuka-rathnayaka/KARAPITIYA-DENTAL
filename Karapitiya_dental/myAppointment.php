@@ -9,6 +9,7 @@ if (mysqli_num_rows($results) > 0) {
 }
 ?>
 </table>
+
 <script src="jquery.min.js"></script>
 <script>
     $('input[type="button"]').click(function() {
@@ -38,7 +39,7 @@ if (mysqli_num_rows($results) > 0) {
                         btnval: btnval
                     },
                     success: function(data) {
-                        $('.bottom').html(data);
+
                     }
                 });
             }

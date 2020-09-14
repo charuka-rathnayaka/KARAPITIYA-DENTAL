@@ -28,3 +28,4 @@ document.getElementById(" . $rows["Appointmentnumber"] . ").onclick = function (
         ";
     }
 }
+
