@@ -115,7 +115,7 @@ if (empty($_SESSION['username'])) {
 
 
     <form action="" method="post">
-        <table align="center" cellpadding="5" cellspacing="10">
+        <table class="insertInfo" align="center" cellpadding="5" cellspacing="10">
             <tr>
                 <td>Patient Name</td>
                 <td>
@@ -149,7 +149,7 @@ if (empty($_SESSION['username'])) {
                 </td>
             </tr>
             <tr>
-                <td><input type="button" name="check" id="check1" value="Check" onClick="send()" /></td>
+                <td><input type="button" class="checkBtn" name="check" id="check1" value="Check" onClick="send()" /></td>
             </tr>
         </table>
         <div class="bottom"></div>
