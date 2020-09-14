@@ -64,7 +64,7 @@
         $user=$user_managee->register($array_data);
         if (get_class($user)=="Patient"){
             $_SESSION["user_type"]=get_class($user);
-            $_SESSION['success']="Now you are logged in patient "; 
+            $_SESSION['success']=""; 
             $_SESSION['username']=$user->get_username();
             $email_fac=new RegisterFactory();
             $email=$email_fac->operate($_SESSION["Email"],$_SESSION["Firstname"]);
@@ -96,7 +96,7 @@ if(isset($_POST['login'])){
         else{
         if (get_class($user)=="Admin"){
             $_SESSION["user_type"]=get_class($user);
-            $_SESSION['success']="Now you are logged in admin"; 
+            $_SESSION['success']=""; 
             $_SESSION['username']=$user->get_username();
             header('location: index.php');
         }
@@ -106,19 +106,19 @@ if(isset($_POST['login'])){
             $reminder = Reminder::getInstance();
             $reminder->send_reminders($tody);
             $reminder->setdate($tody);
-            $_SESSION['success']="Now you are logged in staff"; 
+            $_SESSION['success']=""; 
             $_SESSION['username']=$user->get_username();
             header('location: index.php');
         }
         else if (get_class($user)=="Patient"){
             $_SESSION["user_type"]=get_class($user);
-            $_SESSION['success']="Now you are logged in patient"; 
+            $_SESSION['success']=""; 
             $_SESSION['username']=$user->get_username();
             header('location: index.php');
         }
         else if (get_class($user)=="Doctor"){
             $_SESSION["user_type"]=get_class($user);
-            $_SESSION['success']="Now you are logged in dr"; 
+            $_SESSION['success']=""; 
             $_SESSION['username']=$user->get_username();
             //$_SESSION["user"]=$user;
             header('location: index.php');
