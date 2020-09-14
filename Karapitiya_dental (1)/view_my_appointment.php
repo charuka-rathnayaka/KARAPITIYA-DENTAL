@@ -113,7 +113,7 @@ if (empty($_SESSION['username'])) {
                     <th>Name</th>
                     <th>Date</th>
                     <th>Appointment Number</th>
-                    <th>Traetment</th>
+                    <th>Treatment</th>
                     <th></th>
                 </tr>
             </thead>
