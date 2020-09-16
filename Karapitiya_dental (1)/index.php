@@ -112,7 +112,56 @@ if (isset($_SESSION["user_type"])) {
                 <img src="images/img5.jpg" class="sliderImg">
             </figure>
         </div>
-
+        <div id="news">
+            <img src="images/side.svg" class="sideBackground">
+            <div id="sides1">
+                <a href="basic_treatments.php" class="sideBtns" id="sideBtn1" onmouseover="showDetail1(this)" onmouseout="hideDetail1(this)"> <img src="icons/sideBtn1.svg"></a>
+                <img src="icons/sideDetail1.svg" id="sideDetail1" onmouseover="showDetail1()" onmouseout="hideDetail1()">
+                <p id="p1">Quick Treatments</p>
+            </div>
+            <div id="sides2">
+                <a href="view_my_appointment.php" class="sideBtns" id="sideBtn2" onmouseover="showDetail2(this)" onmouseout="hideDetail2(this)"><img src="icons/sideBtn2.svg"></a>
+                <img src="icons/sideDetail2.svg" id="sideDetail2" onmouseover="showDetail2()" onmouseout="hideDetail2()">
+                <p id="p2">View Appointments</p>
+            </div>
+            <div id="sides3">
+                <a href="contact_us.php" class="sideBtns" id="sideBtn3" onmouseover="showDetail3(this)" onmouseout="hideDetail3(this)"><img src="icons/sideBtn3.svg"></a>
+                <img src="icons/sideDetail3.svg" id="sideDetail3" onmouseover="showDetail3()" onmouseout="hideDetail3()">
+                <p id="p3">Contact Us</p>
+            </div>
+            <script>
+                    var d1= document.getElementById("sideDetail1");
+                    var d2= document.getElementById("sideDetail2");
+                    var d3= document.getElementById("sideDetail3");
+                    var p1= document.getElementById("p1");
+                    var p2= document.getElementById("p2");
+                    var p3= document.getElementById("p3");
+                    function showDetail1(b1){
+                        d1.style.display = "block";
+                        p1.style.display = "block";
+                    }
+                    function showDetail2(){
+                        d2.style.display = "block";
+                        p2.style.display = "block";
+                    }
+                    function showDetail3(){
+                        d3.style.display = "block";
+                        p3.style.display = "block";
+                    }
+                    function hideDetail1(){
+                        d1.style.display = "none";
+                        p1.style.display = "none";
+                    }
+                    function hideDetail2(){
+                        d2.style.display = "none";
+                        p2.style.display = "none";
+                    }
+                    function hideDetail3(){
+                        d3.style.display = "none";
+                        p3.style.display = "none";
+                    }
+                </script>
+        </div>
     </div>
 
 </body>

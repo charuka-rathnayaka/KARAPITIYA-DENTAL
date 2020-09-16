@@ -5,6 +5,11 @@
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   width: 100%;
 }
+
+body{
+  background-color: rgb(207, 245, 243);
+}
+
 .header2{
 margin-top: 0px;
 margin-bottom: 0px;
