@@ -148,7 +148,7 @@ if (empty($_SESSION['username']) || ($_SESSION['user_type'] != "Doctor")) {
 
             <script type="text/javascript">
                 document.getElementById("myButton").onclick = function() {
-                    location.href = "dbOperations/confirm_password.php";
+                    location.href = "confirm_password.php";
                 };
             </script>
 
