@@ -12,7 +12,16 @@ class Originato
     {
     }
 
+    public function deleteTable()
+    {
+        if ($_SESSION['username'] == 'staff') {
 
+            $database = new Db_Connection();
+            $db = $database->connect();
+            $ss = "DELETE FROM `memento`";
+            mysqli_query($db, $ss);
+        }
+    }
 
     public function save(int $id, string $preTable, string $curTable)
     {
@@ -27,8 +36,12 @@ class Originato
             $ss = "INSERT INTO memento (appointment_ID,preTable,curTable) VALUES ($id,'booking','waitinglist')";
 
             mysqli_query($db, $ss);
-        } else {
+        } else if (($curTable == 'booking' and $preTable == 'todayappointment')) {
             $ss = "INSERT INTO memento (appointment_ID,preTable,curTable) VALUES ($id,'booking','todayappointment')";
+
+            mysqli_query($db, $ss);
+        } else {
+            $ss = "INSERT INTO memento (appointment_ID,preTable,curTable) VALUES ($id,'waitinglist','todayappointment')";
 
             mysqli_query($db, $ss);
         }
@@ -163,6 +176,10 @@ class Caretaker
             }
         }
         $this->originator = $originator;
+    }
+    public function deleteTable()
+    {
+        $this->originator->deleteTable();
     }
 
     public function backup(int $id, string $preTable, string $curTable): void
