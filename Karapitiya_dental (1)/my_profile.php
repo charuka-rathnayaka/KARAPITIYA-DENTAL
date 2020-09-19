@@ -144,7 +144,7 @@ if (empty($_SESSION['username'])) {
 
         <script type="text/javascript">
             document.getElementById("myButton").onclick = function() {
-                location.href = "dbOperations/confirm_password.php";
+                location.href = "confirm_password.php";
             };
         </script>
         <button onclick="myFunction()">View Dental History</button>
