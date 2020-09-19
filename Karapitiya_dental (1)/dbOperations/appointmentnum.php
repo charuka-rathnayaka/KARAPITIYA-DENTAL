@@ -16,18 +16,35 @@ $re = mysqli_query($db, $ss);
 
 
 
-echo "  <form  method='POST' id='appointmentdata' action='dbOperations/saveappointment.php' >";
+echo "  <form class='tbl'  method='POST' id='appointmentdata' action='dbOperations/saveappointment.php' >";
 
 
 if (mysqli_num_rows($re) > 0) {
     while ($row = mysqli_fetch_assoc($re)) {
+        echo " <div class=input-group>";
         echo "<tr><th>Date</th><td><input type='text' name='date'value='" . $row['date'] . "'></td></tr>";
+        echo "</div>";
+        echo " <div class=input-group>";
+        echo "<tr><th>patient_name</th><td><input type='text' name='patient_name' value='" . $row['patient_name'] . "'></td></tr>";
+        echo "</div>";
+        echo " <div class=input-group>";
         echo "<tr><th>Username</th><td><input type='text' name='username' value='" . $row['username'] . "'></td></tr>";
+        echo "</div>";
+        echo " <div class=input-group>";
         echo "<tr><th>Id number</th><td><input type='text' name = 'ID' value='" . $row['appointment_ID'] . "'></td></tr>";
+        echo "</div>";
+        echo " <div class=input-group>";
         echo "<tr><th>Appointment Number</th><td><input type='text'name ='appointmentnumber' value='" . $row['Appointmentnumber'] . "'></td></tr>";
+        echo "</div>";
+        echo " <div class=input-group>";
         echo "<tr><th>Treatment</th><td><input type='text' name='treatment' value='" . $row['category'] . "'></td></tr>";
+        echo "</div>";
+        echo " <div class=input-group>";
         echo "<tr><th>Traetment Details</th><td><input type='text' name='treatmentDetails'></td></tr>";
+        echo "</div>";
+        echo " <div class=input-group>";
         echo "<tr><th></th><td> <input type='submit' name='submit'></td></tr>";
+        echo "</div>";
     }
 
     echo "</form>";
