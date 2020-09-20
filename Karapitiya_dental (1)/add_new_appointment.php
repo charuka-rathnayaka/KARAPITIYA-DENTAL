@@ -132,7 +132,7 @@ if (empty($_SESSION['username'])) {
                         <option value="Bridges">Bridges</option>
                         <option value="Crowns">Crowns</option>
                         <option value="Dental Implants">Dental Implants</option>
-              
+
                         <option value="Root canal treatment">Root canal treatment</option>
                         <option value="Scale and polish">Scale and polish</option>
                         <option value="Teeth whitening">Teeth whitening</option>
@@ -146,6 +146,7 @@ if (empty($_SESSION['username'])) {
             <tr>
                 <td>Date:</td>
                 <td><input type="text" id="datepicker"></td>
+                <td><input type="hidden" id="usernam" value='<?php echo $_SESSION["user_type"] ?>'></td>
                 <td>
                     <p id="dd"></p>
                 </td>
