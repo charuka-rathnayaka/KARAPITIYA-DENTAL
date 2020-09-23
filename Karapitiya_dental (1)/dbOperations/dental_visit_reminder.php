@@ -61,13 +61,13 @@ class Reminder{
             $diff=date_diff($last_visit,$today);
             $differ=$diff->format("%R%a");
             $day_dif = (int) $differ;
-            /*if (($row["Status"]=="not_notified") && ($day_dif>90)){*/
+            if (($row["Status"]=="not_notified") && ($day_dif>90)){
                 if (($row["Status"]=="not_notified")){
                 send_reminder_mail($row["Email"],$row["Firstname"]);
                 $username=$row["Username"];
                 $sql_query77="UPDATE `patient_dental_visit_status` SET `Status` = 'notified' WHERE `patient_dental_visit_status`.`Username` = '$username'";
                 $update=mysqli_query($database,$sql_query77);
-            }
+            }}
         }}
         else{}
         }
