@@ -104,50 +104,44 @@ if (empty($_SESSION['username'])) {
             <h3>My Profile</h3>
         </div>
         <br>
-
-        <div class="input-data">
-            <label>Username :</label>
-            <label id="Username"></label>
-
-
-
-        </div>
-
-        <div class="input-data">
-            <label>Firstname:</label>
-
-            <label id="Firstname"></label>
-
-        </div>
-        <div class="input-data">
-            <label>Lastname:</label>
-            <label id="Lastname"></label>
-
-        </div>
-        <div class="input-data">
-            <label>Email:</label>
-            <label id="Email"></label>
-
-        </div>
-        <div class="input-data">
-            <label>Birthday:</label>
-            <label id="Birthday"></label>
-
-        </div>
-        <div class="input-data">
-            <label>Gender:</label>
-            <label id="Gender"></label>
-
-
-        </div>
-        <button id="myButton" class="float-left submit-button">Change Password</button>
+            <div class="input-data">
+                <div class="l1"><label class="fieldz">Username</label></div>
+                <div class="l2"><label class="dots">:</label></div>
+                <div class="l3"><label class="data" id="Username"></label></div>
+            </div>
+            <div class="input-data">
+                <div class="l1"><label class="fieldz">Firstname</label></div>
+                <div class="l2"><label class="dots">:</label></div>
+                <div class="l3"><label class="data" id="Firstname"></label></div>
+            </div>
+            <div class="input-data">
+                <div class="l1"><label class="fieldz">Lastname</label></div>
+                <div class="l2"><label class="dots">:</label></div>
+                <div class="l3"><label class="data" id="Lastname"></label></div>
+            </div>
+            <div class="input-data">
+                <div class="l1"><label class="fieldz">Email</label></div>
+                <div class="l2"><label class="dots">:</label></div>
+                <div class="l3"><label class="data" id="Email"></label></div>
+            </div>
+            <div class="input-data">
+                <div class="l1"><label class="fieldz">Birthday</label></div>
+                <div class="l2"><label class="dots">:</label></div>
+                <div class="l3"><label class="data" id="Birthday"></label></div>
+            </div>
+            <div class="input-data">
+                <div class="l1"><label class="fieldz">Gender</label></div>
+                <div class="l2"><label class="dots">:</label></div>
+                <div class="l3"><label class="data" id="Gender"></label></div>
+            </div>
+            <button id="myButton" class="float-left submit-button">Change Password</button>
 
         <script type="text/javascript">
             document.getElementById("myButton").onclick = function() {
                 location.href = "confirm_password.php";
             };
         </script>
-        <button onclick="myFunction()">View Dental History</button>
+        <button id="myButton2" onclick="myFunction()">View Dental History</button>
 
         <script>
             function myFunction() {

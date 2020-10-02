@@ -1,18 +1,15 @@
 <?php include("dbOperations/config.php");
-if (isset($_SESSION["user_type"])) {
-}
 
 
-?>
-
-
+if (empty($_SESSION['username']) || ($_SESSION['user_type'] != "Doctor")) {
+    header("location:login.php");
+} ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="../Karapitiya_dental/css/stylesheet_home.css">
-    <script src="menu_file.js"></script>
+    <title>My Profile</title>
+    <link rel="stylesheet" type="text/css" href="../Karapitiya_dental/css/stylesheet_my_profile - Copy.css">
 </head>
 
 <body>
@@ -100,45 +97,82 @@ if (isset($_SESSION["user_type"])) {
            <?php include('user_type_menu.php');
            ?> 
 
-
-    <div class="homePageContent1">
-
-        <div id="slider">
-            <figure>
-                <img src="images/img1.jpg" class="sliderImg">
-                <img src="images/img2.jpg" class="sliderImg">
-                <img src="images/img3.jpg" class="sliderImg">
-                <img src="images/img4.jpg" class="sliderImg">
-                <img src="images/img5.jpg" class="sliderImg">
-            </figure>
+    <div class="content">
+        <div class="topic">
+            <h3>My Profile</h3>
         </div>
-        <div class="iframeVid">
-            <div id="vidLabel">
-                <p>Brushing your teeth is the best way to maintain oral hygiene.</p>
-                <p>Watch this quick video on how to brush your teeth in the correct way</p>
-                <img src="icons/Toothbrush.svg" id="toothbrushIcon">
+        <br>
+        <div class="input-data">
+            <label>Username:</label>
+
+            <label id="Username"></label>
+
+        </div>
+        <div class="input-data">
+            <label>Registration Number:</label>
+
+            <label id="Reg_num"></label>
+            <div class="input-data">
+                <label>Firstname:</label>
+
+                <label id='Firstname'></label>
+
             </div>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/BapR9J86ZZw" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="input-data">
+                <label>Lastname:</label>
+                <label id="Lastname"></label>
+
+            </div>
+            <div class="input-data">
+                <label>Email:</label>
+                <label id="Email"></label>
+
+            </div>
+            <div class="input-data">
+                <label>Birthday:</label>
+                <label id="Birthday"></label>
+
+            </div>
+            <div class="input-data">
+                <label>Gender:</label>
+                <label id='Gender'></label>
+
+            </div>
+            <div class="input-data">
+                <label>Quallifications:</label>
+                <label id='Qualifications'>></label>
+
+            </div>
+            <br>
+            <button id="myButton" class="float-left submit-button">Change Password</button>
+
+            <script type="text/javascript">
+                document.getElementById("myButton").onclick = function() {
+                    location.href = "confirm_password.php";
+                };
+            </script>
+
+
         </div>
-    </div>
-    <div class="homePageContent2">
-        <div class="shortcuts">
-            <a href="basic_treatments.php">
-                <img src="icons/sideBtn1.svg" class="shortcutIcons">
-                <h2>Quick Treatments</h2>
-            </a>
-            <a href="view_my_appointment.php">
-                <img src="icons/sideBtn2.svg" class="shortcutIcons">
-                <h2>View Appointments</h2>
-            </a>
-            <a href="contact_us.php">
-                <img src="icons/sideBtn3.svg" class="shortcutIcons">
-                <h2>Contact Us</h2>
-            </a>
-        </div>
-               
-    </div>
+        <script>
+            var xmlhttp = new XMLHttpRequest();
+
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    myObj = JSON.parse(this.responseText);
+                    document.getElementById("Firstname").innerHTML = myObj.Firstname;
+                    document.getElementById("Lastname").innerHTML = myObj.Lastname;
+                    document.getElementById("Email").innerHTML = myObj.Email;
+                    document.getElementById("Birthday").innerHTML = myObj.Birthday;
+                    document.getElementById("Gender").innerHTML = myObj.Gender;
+                    document.getElementById("Username").innerHTML = myObj.Username;
+                    document.getElementById("Reg_num").innerHTML = myObj.Reg_num;
+                    document.getElementById("Qualifications").innerHTML = myObj.Qualifications;
+                }
+            };
+            xmlhttp.open("GET", "dbOperations/dr_profile.php", true);
+            xmlhttp.send();
+        </script>
 
 </body>
 

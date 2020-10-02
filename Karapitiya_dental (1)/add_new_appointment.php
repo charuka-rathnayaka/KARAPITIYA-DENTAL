@@ -9,7 +9,6 @@ if (empty($_SESSION['username'])) {
 <head>
     <title>Add New Appointment</title>
     <link rel="stylesheet" type="text/css" href="../Karapitiya_dental/css/stylesheet_view_appointment.css">
-    <link rel="stylesheet" type="text/css" href="../Karapitiya_dental/css/stylesheet_home.css">
     <script src="../Karapitiya_dental/js/jquery.min.js"></script>
     <script src="../Karapitiya_dental/js/blogic.js"></script>
 
@@ -117,7 +116,7 @@ if (empty($_SESSION['username'])) {
 
 
     <form action="" method="post">
-        <table align="center" cellpadding="5" cellspacing="10">
+        <table id="t1" align="center" cellpadding="5" cellspacing="10">
             <tr>
                 <td>Patient Name</td>
                 <td>
@@ -132,7 +131,6 @@ if (empty($_SESSION['username'])) {
                         <option value="Bridges">Bridges</option>
                         <option value="Crowns">Crowns</option>
                         <option value="Dental Implants">Dental Implants</option>
-
                         <option value="Root canal treatment">Root canal treatment</option>
                         <option value="Scale and polish">Scale and polish</option>
                         <option value="Teeth whitening">Teeth whitening</option>
@@ -144,7 +142,7 @@ if (empty($_SESSION['username'])) {
                     </select></td>
             </tr>
             <tr>
-                <td>Date:</td>
+                <td>Date</td>
                 <td><input type="text" id="datepicker"></td>
                 <td><input type="hidden" id="usernam" value='<?php echo $_SESSION["user_type"] ?>'></td>
                 <td>

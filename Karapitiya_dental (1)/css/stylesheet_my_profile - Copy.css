@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+body{
+  background-color: rgb(207, 245, 243);
+}
+
 .header2{
 margin-top: 0px;
 margin-bottom: 0px;
@@ -162,93 +166,44 @@ width: 15%;
  }
 /*--------------------------------------*/
 
+*{
+    margin: 0px;
+    padding: 0px;
+}
 body{
     font-size:100%;
-    background-color: rgb(207, 245, 243);
+    background: #F8F8FF;
 
 }
 .topic{
     width: 80%;
-    height: 50px;
-    margin: 5px auto 5px;
+    margin: 50px auto 0px;
     color: white;
-    background: rgb(43,122,119);
+    background: #5F9EA0;
     text-align: center;
     border:1px solid #B0C4DE;
     border-bottom: none;
-    border-radius: 10px;
-    padding: 5px;
+    border-radius: 10px 10px 0px 0px;
+    padding: 10px;
 }
-
-.topic h3{
-    margin: 10px;
-}
-
 .content{
     color: none;
     color: black;
+    
     font-size:130%;
-    font-family: Arial, Helvetica, sans-serif;
-    width: 40%;
-    margin: 10px auto;
-    margin-top: 20px;
+    width: 30%;
+    margin: 0px auto;
     padding: 25px;
     border: 1px solid #B0C4DE;
     background: white;
-    border-radius: 20px;
+    border-radius: 20px 0px 10px 10px;
 }
-
-.input-data{
-  margin: 0px auto;
-  display: flex;
-}
-
 .input-data label{
+    margin: 10px 0px 10px 0px;
     height: 30px;
+    width: 93%;
+    padding: 5px 10px;
     font-size: 20px;
-}
-
-.input-data .l1{
-  width: 200px;
-}
-
-.input-data .l2{
-  width: 50px;
-}
-
-.fieldz{
-  padding: 5px 10px 5px 40px;
-  width: 60px;
-}
-
-.dots{
-  vertical-align: middle;
-}
-
-#myButton{
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: medium;
-  padding: 10px;
-  margin: 20px 0px 0px 70px;
-  border-radius: 10px;
-  background-color: rgb(57,175,169);
-}
-
-#myButton:hover{
-  background-color: rgb(43,122,119);
-}
-
-#myButton2{
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: medium;
-  padding: 10px;
-  margin: 20px 0px 0px 30px;
-  border-radius: 10px;
-  background-color: rgb(57,175,169);
-}
-
-#myButton2:hover{
-  background-color: rgb(43,122,119);
 }
 
 .navBarIcons{

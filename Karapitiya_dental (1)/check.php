@@ -3,6 +3,7 @@
 
 <head>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../Karapitiya_dental/css/stylesheet_view_appointment.css">
 	<script src="../Karapitiya_dental/js/blogic.js"></script>
 	<style>
 		.button1 {
@@ -78,8 +79,8 @@
 	</script>
 	<?php if (isset($_POST['check']) && !(isset($formerro))) : ?>
 
-		<h3>
-			<font color="#3300FF">Select your free time slot</font>
+		<h3 #id="timeSlotHead">
+			<font>Select your free time slot</font>
 		</h3>
 		<input type="button" name="time" id="timebtn" value="8.00-9.00a.m" <?php if (in_array("Sorry1...", $error, TRUE)) : ?> class="button1" onClick="warning()" <?php else : ?>onClick="toogle(this)" <?php endif ?> />
 		<input type="button" name="time" id="timebtn" value="9.00-10.00a.m" <?php if (in_array("Sorry2...", $error, TRUE)) : ?> class="button1" onClick="warning()" <?php else : ?>onClick="toogle(this)" <?php endif ?> />

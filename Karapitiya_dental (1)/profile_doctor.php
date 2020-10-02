@@ -102,46 +102,45 @@ if (empty($_SESSION['username']) || ($_SESSION['user_type'] != "Doctor")) {
             <h3>My Profile</h3>
         </div>
         <br>
-        <div class="input-data">
-            <label>Username:</label>
-
-            <label id="Username"></label>
-
-        </div>
-        <div class="input-data">
-            <label>Registration Number:</label>
-
-            <label id="Reg_num"></label>
             <div class="input-data">
-                <label>Firstname:</label>
-
-                <label id='Firstname'></label>
-
+                <div class="l1"><label class="fieldz">Username</label></div>
+                <div class="l2"><label class="dots">:</label></div>
+                <div class="l3"><label class="data" id="Username"></label></div>
             </div>
             <div class="input-data">
-                <label>Lastname:</label>
-                <label id="Lastname"></label>
-
+                <div class="l1"><label class="fieldz">Registration No.</label></div>
+                <div class="l2"><label class="dots">:</label></div>
+                <div class="l3"><label class="data" id="Reg_num"></label></div>
             </div>
             <div class="input-data">
-                <label>Email:</label>
-                <label id="Email"></label>
-
+                <div class="l1"><label class="fieldz">Firstname</label></div>
+                <div class="l2"><label class="dots">:</label></div>
+                <div class="l3"><label class="data" id='Firstname'></label></div>
             </div>
             <div class="input-data">
-                <label>Birthday:</label>
-                <label id="Birthday"></label>
-
+                <div class="l1"><label class="fieldz">Lastname</label></div>
+                <div class="l2"><label class="dots">:</label></div>
+                <div class="l3"><label class="data" id="Lastname"></label></div>
             </div>
             <div class="input-data">
-                <label>Gender:</label>
-                <label id='Gender'></label>
-
+                <div class="l1"><label class="fieldz">Email</label></div>
+                <div class="l2"><label class="dots">:</label></div>
+                <div class="l3"><label class="data" id="Email"></label></div>
             </div>
             <div class="input-data">
-                <label>Quallifications:</label>
-                <label id='Qualifications'>></label>
-
+                <div class="l1"><label class="fieldz">Birthday</label></div>
+                <div class="l2"><label class="dots">:</label></div>
+                <div class="l3"><label class="data" id="Birthday"></label></div>
+            </div>
+            <div class="input-data">
+                <div class="l1"><label class="fieldz">Gender</label></div>
+                <div class="l2"><label class="dots">:</label></div>
+                <div class="l3"><label class="data" id='Gender'></label></div>
+            </div>
+            <div class="input-data">
+                <div class="l1"><label class="fieldz">Quallifications</label></div>
+                <div class="l2"><label class="dots">:</label></div>
+                <div class="l3"><label class="data" id='Qualifications'>></label></div>
             </div>
             <br>
             <button id="myButton" class="float-left submit-button">Change Password</button>

@@ -13,10 +13,10 @@ function clock() {
       setInterval(getting(), 1000);
       status.innerHTML = "Next Appointment Number";
     } else {
-      status.innerHTML = "Clinic is close";
+      status.innerHTML = "Clinic is closed";
     }
   } else {
-    status.innerHTML = "Clinic is close";
+    status.innerHTML = "Clinic is closed";
   }
 }
 

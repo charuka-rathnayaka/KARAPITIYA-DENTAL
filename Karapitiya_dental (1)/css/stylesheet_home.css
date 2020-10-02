@@ -247,7 +247,7 @@ h2{
    }
 
    #slider{
-     width: 75%;
+     width: 60%;
      overflow: hidden;
      border-top: 0px;
      margin-top: 0px;
@@ -266,114 +266,76 @@ h2{
      animation: 40s slider infinite;
      animation-direction: alternate;
    }
-
-   #news{
-     position: relative;
-     width: 25%;
-   }
-
-   .sideBackground{
-     width: 100%;
-     opacity: 0.5;
-   }
-
-   #sides1{
-     display: flex;
-     position: absolute;
-     top: 10px;
-     left: 20px;
-     margin: 10px;
-     width: 85%;
-   }
-
-   #sides2{
-    display: flex;
-    position: absolute;
-    top: 150px;
-    left: 20px;
-    margin: 10px;
-    width: 85%;
-  }
-
-  #sides3{
-    display: flex;
-    position: absolute;
-    top: 290px;
-    left: 20px;
-    margin: 10px;
-    width: 85%;
-  }
-
-   #sideBtn1{
-    width: 30%;
-   }
-
-   #sideDetail1{
-    position: absolute;
-    height: 100%;
-    margin-left: 80px;
-    display: none;
-   }
-
-   #p1{
-    position: absolute;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: large;
-    font-weight: bold;
-    margin-left: 140px;
-    margin-top: 40px;
-    display: none;
-   }
-
-   #sideBtn2{
-    width: 30%;
-   }
-
-   #sideDetail2{
-     position: absolute;
-    height: 100%;
-    margin-left: 80px;
-    display: none;
-   }
-
-   #p2{
-    position: absolute;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: large;
-    font-weight: bold;
-    margin-left: 140px;
-    margin-top: 40px;
-    display: none;
-   }
-
-   #sideBtn3{
-    width: 30%;
-   }
-
-   #sideDetail3{
-     position: absolute;
-    height: 100%;
-    margin-left: 80px;
-    display: none;
-   }
    
-   #p3{
-    position: absolute;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: large;
-    font-weight: bold;
-    margin-left: 160px;
-    margin-top: 40px;
-    display: none;
-   }
-
-   .sideBtns:hover{
-     filter: brightness(0.75);
-   }
-   
-   .homePageContent{
+   .homePageContent1{
      display: flex;
      width: 100%;
      height: 100%;
    }
 
+   .iframeVid{
+      width: 40%;
+   }
+
+   iframe{
+     width: 100%;
+     height: 70%;
+     bottom: 0px;
+     margin: 0px;
+   }
+
+   #vidLabel{
+     font-family: Arial, Helvetica, sans-serif;
+     background-color:rgb(86, 214, 206);
+     font-weight: bold;
+     font-size: large;
+     width: 100%;
+     height: 30%;
+     text-align: left;
+     margin: 0px;
+   }
+
+   #vidLabel p{
+    padding-top: 8px;
+    padding-left: 8px;
+    margin: 0px;
+   }
+
+   #toothbrushIcon{
+     padding-left: 30px;
+     height: 50%;
+   }
+
+   .homePageContent2{
+    width: 100%;
+  }
+  
+   .shortcutIcons{
+     height: 150px;
+   }
+   
+   .shortcuts{
+     display: flex;
+     background:rgb(57,175,169);
+   }
+
+   .shortcuts a{
+     margin: 2em;
+     padding-top: 10px;
+     text-decoration: none;
+     text-align: center;
+     border-radius: 10px;
+     width: 30%;
+     color: black;
+     font-family: Arial, Helvetica, sans-serif;
+     background:rgb(57,175,169);
+   }
+
+   .shortcuts a:hover{
+    background:rgb(45, 139, 135);
+   }
+
+   .shortcuts a h2{
+     text-align: center;
+     font-size: x-large;
+   }
