@@ -3,22 +3,21 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#3D897A;}
-	.st1{fill:#FFFFFF;}
+	.st0{fill:#FFFFFF;}
 </style>
-<circle class="st0" cx="100" cy="100" r="100"/>
-<path class="st1" d="M154.1,46.8h-5.3v8.8c0,3.3-2.7,6-6,6l0,0h-4.5c-3.3,0-6-2.7-6-6l0,0v-8.8H69.4v8.8c0,3.3-2.7,6-6,6l0,0h-4.5
+<circle cx="100" cy="100" r="100"/>
+<path class="st0" d="M154.1,46.8h-5.3v8.8c0,3.3-2.7,6-6,6l0,0h-4.5c-3.3,0-6-2.7-6-6l0,0v-8.8H69.4v8.8c0,3.3-2.7,6-6,6l0,0h-4.5
 	c-3.3,0-6-2.7-6-6l0,0v-8.8h-7c-3.6,0-6.5,2.9-6.5,6.5v91.3c0,3.6,2.9,6.5,6.5,6.5l0,0h108.2c3.6,0,6.5-2.9,6.5-6.5l0,0V53.3
 	C160.6,49.7,157.7,46.8,154.1,46.8L154.1,46.8z M156.3,143.4c0,2.3-1.9,4.2-4.2,4.2H47.6c-2.3,0-4.2-1.9-4.2-4.2V79.1
 	c0-3.7,3-6.6,6.6-6.6h99.7c3.7,0,6.6,3,6.6,6.6V143.4z"/>
-<rect x="52.9" y="84.1" class="st1" width="17.1" height="17.1"/>
-<rect x="92.3" y="84.1" class="st1" width="17.1" height="17.1"/>
-<rect x="131.6" y="84.1" class="st1" width="17.1" height="17.1"/>
-<rect x="52.9" y="115.9" class="st1" width="17.1" height="17.1"/>
-<rect x="92.3" y="115.9" class="st1" width="17.1" height="17.1"/>
-<rect x="131.6" y="115.9" class="st1" width="17.1" height="17.1"/>
-<path class="st1" d="M61.2,36.5L61.2,36.5c3.3,0,6,2.7,6,6V51c0,3.3-2.7,6-6,6l0,0c-3.3,0-6-2.7-6-6v-8.5
+<rect x="52.9" y="84.1" class="st0" width="17.1" height="17.1"/>
+<rect x="92.3" y="84.1" class="st0" width="17.1" height="17.1"/>
+<rect x="131.6" y="84.1" class="st0" width="17.1" height="17.1"/>
+<rect x="52.9" y="115.9" class="st0" width="17.1" height="17.1"/>
+<rect x="92.3" y="115.9" class="st0" width="17.1" height="17.1"/>
+<rect x="131.6" y="115.9" class="st0" width="17.1" height="17.1"/>
+<path class="st0" d="M61.2,36.5L61.2,36.5c3.3,0,6,2.7,6,6V51c0,3.3-2.7,6-6,6l0,0c-3.3,0-6-2.7-6-6v-8.5
 	C55.2,39.2,57.9,36.5,61.2,36.5z"/>
-<path class="st1" d="M140.5,36.5L140.5,36.5c3.3,0,6,2.7,6,6V51c0,3.3-2.7,6-6,6l0,0c-3.3,0-6-2.7-6-6v-8.5
+<path class="st0" d="M140.5,36.5L140.5,36.5c3.3,0,6,2.7,6,6V51c0,3.3-2.7,6-6,6l0,0c-3.3,0-6-2.7-6-6v-8.5
 	C134.5,39.2,137.2,36.5,140.5,36.5z"/>
 </svg>
