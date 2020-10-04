@@ -19,8 +19,10 @@ if (mysqli_num_rows($re) > 0) {
 
          <script>
 document.getElementById(" . $rows["Appointmentnumber"] . ").onclick = function () {
-  $('#appointmentdata').load('dbOperations/appointmentnum.php', {
+  $('#appointmentdata').load('dbOperations/appointmentnum1.php', {
     postusername:'" . $rows["username"] . "',
+     patient_name:'" . $rows["patient_name"] . "',
+    Appointmentnumber:'" . $rows["Appointmentnumber"] . "',
   });
 };
 
