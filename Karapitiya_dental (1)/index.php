@@ -113,13 +113,16 @@ if (isset($_SESSION["user_type"])) {
             </figure>
         </div>
         <div class="iframeVid">
-            <div id="vidLabel">
-                <p>Brushing your teeth is the best way to maintain oral hygiene.</p>
-                <p>Watch this quick video on how to brush your teeth in the correct way</p>
-                <img src="icons/Toothbrush.svg" id="toothbrushIcon">
-            </div>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/BapR9J86ZZw" frameborder="0" 
+        <iframe width="560" height="360" src="https://www.youtube.com/embed/BapR9J86ZZw" frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div id="vidLabel">
+                <p>"Teeth are alive, and given the proper environment, they can regenerate; this is why internal factors that nourish the teeth are so important.." </p>
+                <div id="quote_name">
+                <p>~ Nadine Artemis</p>
+                </div>
+               
+            </div>
+            
         </div>
     </div>
     <div class="homePageContent2">
