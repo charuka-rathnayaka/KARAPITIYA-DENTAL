@@ -4,7 +4,7 @@
 
 <head>
     <title> User Login form </title>
-    <link rel="stylesheet" type="text/css" href="../Karapitiya_dental/css/stylesheet_form.css">
+    <link rel="stylesheet" type="text/css" href="css/stylesheet_form.css">
 
 </head>
 
