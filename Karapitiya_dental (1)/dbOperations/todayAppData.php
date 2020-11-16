@@ -8,6 +8,7 @@ $date = date("d-m-Y");
 $ss = "SELECT * FROM todayappointment WHERE `date`='$date'";
 $re = mysqli_query($db, $ss);
 $data = array();
+
 if (mysqli_num_rows($re) > 0) {
 
   while ($rows = mysqli_fetch_assoc($re)) {

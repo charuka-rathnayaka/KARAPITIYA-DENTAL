@@ -1,6 +1,6 @@
 <?php include("dbOperations/config.php");
 include_once('dbOperations/memento.php');
-include('dbOperations/waitingListUpdate.php');
+//include('dbOperations/user.php');
 if (empty($_SESSION['username'])) {
     header("location:login.php");
 } ?>
@@ -135,7 +135,14 @@ if (empty($_SESSION['username'])) {
 
     <div id="tables">
         <?php
-        include('showTables.php');
+
+
+
+        if (array_key_exists('submit', $_POST)) {
+            Staff::getInstance()->waitingListUpdate();
+        }
+        Staff::getInstance()->showTable();
+
         ?>
 
     </div>
