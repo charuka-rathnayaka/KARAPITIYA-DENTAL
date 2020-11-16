@@ -1,5 +1,5 @@
 <?php include("dbOperations/config.php");
-
+//include('dbOperations/user.php');
 
 if (empty($_SESSION['username'])) {
     header("location:login.php");
@@ -122,7 +122,9 @@ if (empty($_SESSION['username'])) {
                 </tr>
             </thead>
             <div id="tabledata">
-                <?php include('dbOperations/todayAppData.php');
+                <?php
+                Doctor::getInstance()->getTodayAppointment();
+
                 ?>
             </div>
         </table>

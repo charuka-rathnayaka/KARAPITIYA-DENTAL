@@ -36,7 +36,7 @@ class Originato
             $ss = "INSERT INTO memento (appointment_ID,preTable,curTable) VALUES ($id,'booking','waitinglist')";
 
             mysqli_query($db, $ss);
-        } else if (($curTable == 'booking' and $preTable == 'todayappointment')) {
+        } else if (($preTable == 'booking' and $curTable == 'todayappointment')) {
             $ss = "INSERT INTO memento (appointment_ID,preTable,curTable) VALUES ($id,'booking','todayappointment')";
 
             mysqli_query($db, $ss);
@@ -56,7 +56,7 @@ class Originato
                 $this->idnum = $row["ID"];
             }
         }
-        print_r($this->idnum);
+
         $this->state = new State($id, $preTable, $curTable, $this->idnum);
         return new Memento($this->state);
     }
@@ -208,7 +208,7 @@ class Caretaker
     {
 
         foreach ($this->mementos as $memento) {
-            echo $memento->getName() . "\n";
+            //  echo $memento->getName() . "\n";
         }
     }
 }
